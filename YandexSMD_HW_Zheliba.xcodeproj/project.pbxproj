@@ -11,7 +11,21 @@
 		4FDCD8792C25946100E6D5A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDCD8782C25946100E6D5A3 /* ContentView.swift */; };
 		4FDCD87B2C25946300E6D5A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDCD87A2C25946300E6D5A3 /* Assets.xcassets */; };
 		4FDCD87E2C25946300E6D5A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDCD87D2C25946300E6D5A3 /* Preview Assets.xcassets */; };
+		4FDCD8882C259F0C00E6D5A3 /* TodoItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDCD8872C259F0C00E6D5A3 /* TodoItemModel.swift */; };
+		4FDCD88A2C259FDF00E6D5A3 /* ToDoItemExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDCD8892C259FDF00E6D5A3 /* ToDoItemExt.swift */; };
+		4FDCD88C2C25A0C200E6D5A3 /* FileCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDCD88B2C25A0C200E6D5A3 /* FileCache.swift */; };
+		4FDCD8A52C25A5F700E6D5A3 /* TodoItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDCD8A42C25A5F700E6D5A3 /* TodoItemTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4FDCD89F2C25A57000E6D5A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FDCD86B2C25946100E6D5A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FDCD8722C25946100E6D5A3;
+			remoteInfo = YandexSMD_HW_Zheliba;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4FDCD8732C25946100E6D5A3 /* YandexSMD_HW_Zheliba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YandexSMD_HW_Zheliba.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,10 +33,23 @@
 		4FDCD8782C25946100E6D5A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4FDCD87A2C25946300E6D5A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FDCD87D2C25946300E6D5A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4FDCD8872C259F0C00E6D5A3 /* TodoItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemModel.swift; sourceTree = "<group>"; };
+		4FDCD8892C259FDF00E6D5A3 /* ToDoItemExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemExt.swift; sourceTree = "<group>"; };
+		4FDCD88B2C25A0C200E6D5A3 /* FileCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCache.swift; sourceTree = "<group>"; };
+		4FDCD8902C25A38100E6D5A3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		4FDCD89B2C25A57000E6D5A3 /* YandexSMD_HW_ZhelibaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YandexSMD_HW_ZhelibaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FDCD8A42C25A5F700E6D5A3 /* TodoItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4FDCD8702C25946100E6D5A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDCD8982C25A57000E6D5A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -36,7 +63,9 @@
 			isa = PBXGroup;
 			children = (
 				4FDCD8752C25946100E6D5A3 /* YandexSMD_HW_Zheliba */,
+				4FDCD89C2C25A57000E6D5A3 /* YandexSMD_HW_ZhelibaTests */,
 				4FDCD8742C25946100E6D5A3 /* Products */,
+				4FDCD88F2C25A38100E6D5A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -44,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				4FDCD8732C25946100E6D5A3 /* YandexSMD_HW_Zheliba.app */,
+				4FDCD89B2C25A57000E6D5A3 /* YandexSMD_HW_ZhelibaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,6 +81,7 @@
 		4FDCD8752C25946100E6D5A3 /* YandexSMD_HW_Zheliba */ = {
 			isa = PBXGroup;
 			children = (
+				4FDCD8862C259EC000E6D5A3 /* ToDoItems */,
 				4FDCD8762C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift */,
 				4FDCD8782C25946100E6D5A3 /* ContentView.swift */,
 				4FDCD87A2C25946300E6D5A3 /* Assets.xcassets */,
@@ -65,6 +96,32 @@
 				4FDCD87D2C25946300E6D5A3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4FDCD8862C259EC000E6D5A3 /* ToDoItems */ = {
+			isa = PBXGroup;
+			children = (
+				4FDCD8872C259F0C00E6D5A3 /* TodoItemModel.swift */,
+				4FDCD8892C259FDF00E6D5A3 /* ToDoItemExt.swift */,
+				4FDCD88B2C25A0C200E6D5A3 /* FileCache.swift */,
+			);
+			path = ToDoItems;
+			sourceTree = "<group>";
+		};
+		4FDCD88F2C25A38100E6D5A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4FDCD8902C25A38100E6D5A3 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4FDCD89C2C25A57000E6D5A3 /* YandexSMD_HW_ZhelibaTests */ = {
+			isa = PBXGroup;
+			children = (
+				4FDCD8A42C25A5F700E6D5A3 /* TodoItemTests.swift */,
+			);
+			path = YandexSMD_HW_ZhelibaTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +144,24 @@
 			productReference = 4FDCD8732C25946100E6D5A3 /* YandexSMD_HW_Zheliba.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4FDCD89A2C25A57000E6D5A3 /* YandexSMD_HW_ZhelibaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FDCD8A12C25A57000E6D5A3 /* Build configuration list for PBXNativeTarget "YandexSMD_HW_ZhelibaTests" */;
+			buildPhases = (
+				4FDCD8972C25A57000E6D5A3 /* Sources */,
+				4FDCD8982C25A57000E6D5A3 /* Frameworks */,
+				4FDCD8992C25A57000E6D5A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4FDCD8A02C25A57000E6D5A3 /* PBXTargetDependency */,
+			);
+			name = YandexSMD_HW_ZhelibaTests;
+			productName = YandexSMD_HW_ZhelibaTests;
+			productReference = 4FDCD89B2C25A57000E6D5A3 /* YandexSMD_HW_ZhelibaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -99,6 +174,10 @@
 				TargetAttributes = {
 					4FDCD8722C25946100E6D5A3 = {
 						CreatedOnToolsVersion = 15.3;
+					};
+					4FDCD89A2C25A57000E6D5A3 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 4FDCD8722C25946100E6D5A3;
 					};
 				};
 			};
@@ -116,6 +195,7 @@
 			projectRoot = "";
 			targets = (
 				4FDCD8722C25946100E6D5A3 /* YandexSMD_HW_Zheliba */,
+				4FDCD89A2C25A57000E6D5A3 /* YandexSMD_HW_ZhelibaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -130,6 +210,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4FDCD8992C25A57000E6D5A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -137,12 +224,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FDCD88A2C259FDF00E6D5A3 /* ToDoItemExt.swift in Sources */,
 				4FDCD8792C25946100E6D5A3 /* ContentView.swift in Sources */,
+				4FDCD8882C259F0C00E6D5A3 /* TodoItemModel.swift in Sources */,
+				4FDCD88C2C25A0C200E6D5A3 /* FileCache.swift in Sources */,
 				4FDCD8772C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4FDCD8972C25A57000E6D5A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDCD8A52C25A5F700E6D5A3 /* TodoItemTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4FDCD8A02C25A57000E6D5A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FDCD8722C25946100E6D5A3 /* YandexSMD_HW_Zheliba */;
+			targetProxy = 4FDCD89F2C25A57000E6D5A3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		4FDCD87F2C25946300E6D5A3 /* Debug */ = {
@@ -320,6 +426,40 @@
 			};
 			name = Release;
 		};
+		4FDCD8A22C25A57000E6D5A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "opium.YandexSMD-HW-ZhelibaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YandexSMD_HW_Zheliba.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/YandexSMD_HW_Zheliba";
+			};
+			name = Debug;
+		};
+		4FDCD8A32C25A57000E6D5A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "opium.YandexSMD-HW-ZhelibaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YandexSMD_HW_Zheliba.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/YandexSMD_HW_Zheliba";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -337,6 +477,15 @@
 			buildConfigurations = (
 				4FDCD8822C25946300E6D5A3 /* Debug */,
 				4FDCD8832C25946300E6D5A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FDCD8A12C25A57000E6D5A3 /* Build configuration list for PBXNativeTarget "YandexSMD_HW_ZhelibaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FDCD8A22C25A57000E6D5A3 /* Debug */,
+				4FDCD8A32C25A57000E6D5A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
