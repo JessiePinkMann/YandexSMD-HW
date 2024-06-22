@@ -7,26 +7,20 @@
 
 import Foundation
 
-import Foundation
-
 class FileCache {
     
-    // Коллекция задач
     private(set) var items: [TodoItem] = []
     
-    // Добавление задачи
     func addItem(_ item: TodoItem) {
         if !items.contains(where: { $0.id == item.id }) {
             items.append(item)
         }
     }
     
-    // Удаление по id
     func removeItem(by id: String) {
         items.removeAll { $0.id == id }
     }
     
-    // Сохранение всех задач в файл
     func save(to filename: String) {
         let fileURL = getDocumentsDirectory().appendingPathComponent(filename)
         
@@ -40,7 +34,6 @@ class FileCache {
         }
     }
     
-    // Загрузка всех задач из файла
     func load(from filename: String) {
         let fileURL = getDocumentsDirectory().appendingPathComponent(filename)
         
@@ -54,7 +47,6 @@ class FileCache {
         }
     }
     
-    // Получение директории
     private func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]

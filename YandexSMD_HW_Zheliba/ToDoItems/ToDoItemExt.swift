@@ -73,10 +73,9 @@ extension TodoItem {
 
 extension TodoItem {
     
-    // Для CSV строки
     static func parse(csv: String) -> TodoItem? {
-        let components = csv.split(separator: ",").map { String($0) }
-        guard components.count >= 6 else { return nil }
+        let components = csv.components(separatedBy: ",")
+        guard components.count >= 5 else { return nil }
         
         let id = components[0]
         let text = components[1]
@@ -85,14 +84,13 @@ extension TodoItem {
         
         let dateFormatter = ISO8601DateFormatter()
         
-        let createdDate = dateFormatter.date(from: components[4]) ?? Date()
-        let modifiedDate = components[5].isEmpty ? nil : dateFormatter.date(from: components[5])
+        guard let createdDate = dateFormatter.date(from: components[4]) else { return nil }
+        let modifiedDate = components.count > 5 && !components[5].isEmpty ? dateFormatter.date(from: components[5]) : nil
         let deadline = components.count > 6 && !components[6].isEmpty ? dateFormatter.date(from: components[6]) : nil
         
         return TodoItem(id: id, text: text, importance: importance, deadline: deadline, isCompleted: isCompleted, createdDate: createdDate, modifiedDate: modifiedDate)
     }
     
-    // Для формирования CSV строки
     var csv: String {
         var components: [String] = [
             id,
@@ -106,7 +104,10 @@ extension TodoItem {
         components.append(modifiedDate != nil ? dateFormatter.string(from: modifiedDate!) : "")
         components.append(deadline != nil ? dateFormatter.string(from: deadline!) : "")
         
+        while components.count < 7 {
+            components.append("")
+        }
+        
         return components.joined(separator: ",")
     }
 }
-
