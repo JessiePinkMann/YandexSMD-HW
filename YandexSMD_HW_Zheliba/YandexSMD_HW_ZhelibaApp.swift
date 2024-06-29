@@ -11,7 +11,7 @@ import SwiftUI
 struct YandexSMD_HW_ZhelibaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
