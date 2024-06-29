@@ -2,7 +2,7 @@
 //  Color+Ext.swift
 //  YandexSMD_HW_Zheliba
 //
-//  Created by Egor Anoshin on 29.06.2024.
+//  Created by Egor Anoshin on 28.06.2024.
 //
 
 import Foundation

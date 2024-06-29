@@ -2,7 +2,7 @@
 //  DetailsView.swift
 //  YandexSMD_HW_Zheliba
 //
-//  Created by Egor Anoshin on 29.06.2024.
+//  Created by Egor Anoshin on 28.06.2024.
 //
 
 import Foundation
@@ -48,12 +48,13 @@ struct DetailsView: View {
             .onChange(of: selection) {
                 isDisabledSave = checkIsDisabledToSave()
             }
-            .animation(nil)
+            .animation(nil, value: selection)
             .frame(width: 150)
             .pickerStyle(SegmentedPickerStyle())
         }
         .frame(height: 40)
     }
+
     
     var deadline: some View {
         HStack {
