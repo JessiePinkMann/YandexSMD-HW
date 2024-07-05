@@ -9,10 +9,13 @@ import Foundation
 
 final class ModalState: ObservableObject {
     @Published var activateModalView = false
+    @Published var activateCalendarView = false
     @Published var selectedItem: TodoItem?
+    @Published var didDismiss = false
     
     func changeValues(item: TodoItem?) {
         selectedItem = item
         activateModalView = true
+        activateCalendarView = false
     }
 }
