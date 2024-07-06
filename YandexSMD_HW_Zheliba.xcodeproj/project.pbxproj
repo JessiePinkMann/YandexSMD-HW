@@ -23,6 +23,16 @@
 		4F355C202C3020B10049DBAB /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C1F2C3020B10049DBAB /* CaseIterable.swift */; };
 		4F355C222C3026140049DBAB /* ToDoList_iosCSVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C212C3026140049DBAB /* ToDoList_iosCSVTests.swift */; };
 		4F355C262C3026F30049DBAB /* YandexSMD_HW_ZhelibaJsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C252C3026F30049DBAB /* YandexSMD_HW_ZhelibaJsonTests.swift */; };
+		4F355C282C3897520049DBAB /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C272C3897520049DBAB /* CalendarView.swift */; };
+		4F355C2A2C3897BF0049DBAB /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C292C3897BF0049DBAB /* UIView+Ext.swift */; };
+		4F355C2C2C3897D70049DBAB /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C2B2C3897D70049DBAB /* UIImage+Ext.swift */; };
+		4F355C2E2C3897FE0049DBAB /* KeyboardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C2D2C3897FE0049DBAB /* KeyboardModifier.swift */; };
+		4F355C302C3899900049DBAB /* CalendarViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C2F2C3899900049DBAB /* CalendarViewCoordinator.swift */; };
+		4F355C322C3899B20049DBAB /* CalendarViewCoordinator+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C312C3899B20049DBAB /* CalendarViewCoordinator+Ext.swift */; };
+		4F355C342C389AA10049DBAB /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C332C389AA10049DBAB /* CalendarCollectionViewCell.swift */; };
+		4F355C362C389AB20049DBAB /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C352C389AB20049DBAB /* CalendarTableViewCell.swift */; };
+		4F355C382C389B300049DBAB /* StorageLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C372C389B300049DBAB /* StorageLogic.swift */; };
+		4F355C3A2C389B670049DBAB /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C392C389B670049DBAB /* Category.swift */; };
 		4FDCD8772C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDCD8762C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift */; };
 		4FDCD8792C25946100E6D5A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDCD8782C25946100E6D5A3 /* ContentView.swift */; };
 		4FDCD87B2C25946300E6D5A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDCD87A2C25946300E6D5A3 /* Assets.xcassets */; };
@@ -58,6 +68,16 @@
 		4F355C1F2C3020B10049DBAB /* CaseIterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseIterable.swift; sourceTree = "<group>"; };
 		4F355C212C3026140049DBAB /* ToDoList_iosCSVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList_iosCSVTests.swift; sourceTree = "<group>"; };
 		4F355C252C3026F30049DBAB /* YandexSMD_HW_ZhelibaJsonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexSMD_HW_ZhelibaJsonTests.swift; sourceTree = "<group>"; };
+		4F355C272C3897520049DBAB /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		4F355C292C3897BF0049DBAB /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		4F355C2B2C3897D70049DBAB /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		4F355C2D2C3897FE0049DBAB /* KeyboardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardModifier.swift; sourceTree = "<group>"; };
+		4F355C2F2C3899900049DBAB /* CalendarViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewCoordinator.swift; sourceTree = "<group>"; };
+		4F355C312C3899B20049DBAB /* CalendarViewCoordinator+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarViewCoordinator+Ext.swift"; sourceTree = "<group>"; };
+		4F355C332C389AA10049DBAB /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		4F355C352C389AB20049DBAB /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
+		4F355C372C389B300049DBAB /* StorageLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageLogic.swift; sourceTree = "<group>"; };
+		4F355C392C389B670049DBAB /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4FDCD8732C25946100E6D5A3 /* YandexSMD_HW_Zheliba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YandexSMD_HW_Zheliba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FDCD8762C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexSMD_HW_ZhelibaApp.swift; sourceTree = "<group>"; };
 		4FDCD8782C25946100E6D5A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +122,7 @@
 			children = (
 				4F355BFC2C301CBD0049DBAB /* MainViewModel.swift */,
 				4F355BFE2C301CE10049DBAB /* ModalState.swift */,
+				4F355C372C389B300049DBAB /* StorageLogic.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -119,6 +140,7 @@
 			children = (
 				4FDCD8872C259F0C00E6D5A3 /* TodoItemModel.swift */,
 				4F355C022C301D990049DBAB /* Importants.swift */,
+				4F355C392C389B670049DBAB /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -130,6 +152,10 @@
 				4F355C072C301E690049DBAB /* Date+Ext.swift */,
 				4F355C1B2C3020480049DBAB /* UIApplication+Ext.swift */,
 				4F355C1F2C3020B10049DBAB /* CaseIterable.swift */,
+				4F355C292C3897BF0049DBAB /* UIView+Ext.swift */,
+				4F355C2B2C3897D70049DBAB /* UIImage+Ext.swift */,
+				4F355C2F2C3899900049DBAB /* CalendarViewCoordinator.swift */,
+				4F355C312C3899B20049DBAB /* CalendarViewCoordinator+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -150,6 +176,7 @@
 				4F355C0B2C301EC40049DBAB /* SheetModifier.swift */,
 				4F355C0D2C301ECD0049DBAB /* ColorModifier.swift */,
 				4F355C0F2C301ED50049DBAB /* TextFieldFrameModifier.swift */,
+				4F355C2D2C3897FE0049DBAB /* KeyboardModifier.swift */,
 			);
 			path = HelpModifiers;
 			sourceTree = "<group>";
@@ -159,6 +186,8 @@
 			children = (
 				4F355C122C301F120049DBAB /* TaskView.swift */,
 				4F355C142C301F260049DBAB /* ColorPicker.swift */,
+				4F355C332C389AA10049DBAB /* CalendarCollectionViewCell.swift */,
+				4F355C352C389AB20049DBAB /* CalendarTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,6 +197,7 @@
 			children = (
 				4F355C172C301F630049DBAB /* MainView.swift */,
 				4F355C192C301F730049DBAB /* DetailsView.swift */,
+				4F355C272C3897520049DBAB /* CalendarView.swift */,
 			);
 			path = MainScreens;
 			sourceTree = "<group>";
@@ -331,24 +361,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F355C2C2C3897D70049DBAB /* UIImage+Ext.swift in Sources */,
 				4F355C0E2C301ECD0049DBAB /* ColorModifier.swift in Sources */,
 				4F355C132C301F120049DBAB /* TaskView.swift in Sources */,
 				4F355C152C301F260049DBAB /* ColorPicker.swift in Sources */,
 				4F355C102C301ED50049DBAB /* TextFieldFrameModifier.swift in Sources */,
+				4F355C362C389AB20049DBAB /* CalendarTableViewCell.swift in Sources */,
 				4F355C202C3020B10049DBAB /* CaseIterable.swift in Sources */,
+				4F355C382C389B300049DBAB /* StorageLogic.swift in Sources */,
 				4FDCD8792C25946100E6D5A3 /* ContentView.swift in Sources */,
+				4F355C2E2C3897FE0049DBAB /* KeyboardModifier.swift in Sources */,
 				4F355C062C301E4F0049DBAB /* Color+Ext.swift in Sources */,
 				4F355C0C2C301EC40049DBAB /* SheetModifier.swift in Sources */,
 				4FDCD8882C259F0C00E6D5A3 /* TodoItemModel.swift in Sources */,
+				4F355C322C3899B20049DBAB /* CalendarViewCoordinator+Ext.swift in Sources */,
 				4F355C182C301F630049DBAB /* MainView.swift in Sources */,
 				4FDCD88C2C25A0C200E6D5A3 /* FileCache.swift in Sources */,
+				4F355C342C389AA10049DBAB /* CalendarCollectionViewCell.swift in Sources */,
 				4F355C032C301D990049DBAB /* Importants.swift in Sources */,
+				4F355C2A2C3897BF0049DBAB /* UIView+Ext.swift in Sources */,
+				4F355C282C3897520049DBAB /* CalendarView.swift in Sources */,
 				4FDCD8772C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift in Sources */,
+				4F355C302C3899900049DBAB /* CalendarViewCoordinator.swift in Sources */,
 				4F355BFF2C301CE10049DBAB /* ModalState.swift in Sources */,
 				4F355C1A2C301F730049DBAB /* DetailsView.swift in Sources */,
 				4F355BFD2C301CBD0049DBAB /* MainViewModel.swift in Sources */,
 				4F355C1C2C3020480049DBAB /* UIApplication+Ext.swift in Sources */,
 				4F355C082C301E690049DBAB /* Date+Ext.swift in Sources */,
+				4F355C3A2C389B670049DBAB /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
