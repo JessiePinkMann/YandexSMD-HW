@@ -5,19 +5,19 @@
 //  Created by Egor Anoshin on 06.07.2024.
 //
 
-import Foundation
 import UIKit
 import Combine
+import CocoaLumberjackSwift
 
+@MainActor
 class CalendarViewCoordinator: NSObject {
     var storage: StorageLogic
     var sections: [Date]
     var selectedItem = IndexPath(row: 0, section: 0)
+    var isSelectedInCollectionView = false
     var view: CalendarView
-    var isSelectedFromCollectionView = false
     var modalState: ModalState
     var cancellables = Set<AnyCancellable>()
-    
     init(storage: StorageLogic, modalState: ModalState, uiview: CalendarView) {
         self.storage = storage
         self.sections = storage.getSections()
@@ -32,24 +32,20 @@ class CalendarViewCoordinator: NSObject {
             }
             .store(in: &cancellables)
     }
-    
     @objc func plusButtonPressed() {
         modalState.changeValues(item: nil)
     }
-    
     func updateData() {
         do {
             try storage.loadItemsFromJSON()
         } catch {
-           print(error)
+           DDLogError("\(#function): \(error.localizedDescription)")
         }
     }
-    
     func reloadData() {
         view.collectionView.reloadData()
         view.tableView.reloadData()
     }
-    
     func countNumberOfSections() -> Int {
         var anotherCategory = 0
         if storage.getItemsForSection(section: sections.count).count != 0 {

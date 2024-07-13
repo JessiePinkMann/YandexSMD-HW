@@ -15,8 +15,7 @@ struct TextFieldFrameModifier: ViewModifier {
         if verticalSizeClass == .compact || horizontalSizeClass == .regular {
             content
                 .frame(minHeight: UIScreen.main.bounds.size.height * (4/5), alignment: .top)
-        }
-        else {
+        } else {
             content
                 .frame(minHeight: 120, alignment: .top)
         }

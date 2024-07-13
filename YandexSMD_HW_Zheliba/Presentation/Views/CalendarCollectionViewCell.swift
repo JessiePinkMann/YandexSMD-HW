@@ -10,20 +10,17 @@ import UIKit
 
 class CalendarCollectionViewCell: UICollectionViewCell {
     static let identifier = "CalendarCollectionViewCell"
-    
     var stack: UIStackView = {
         var stack = UIStackView()
         stack.axis = .vertical
-        stack.spacing = 16
+        stack.spacing = 12
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
-    
     override func prepareForReuse() {
         stack.arrangedSubviews.forEach { $0.removeFromSuperview() }
         self.isSelected = false
     }
-    
     func makeLabel(text: String) -> UILabel {
         let label = UILabel()
         label.text = text
@@ -32,7 +29,6 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .center
         return label
     }
-    
     func configureCell() {
         self.layer.cornerRadius = 16
         if self.isSelected {
@@ -43,12 +39,10 @@ class CalendarCollectionViewCell: UICollectionViewCell {
             usualCell()
         }
     }
-    
     func usualCell() {
         self.backgroundColor = .clear
         self.layer.borderWidth = 0
     }
-    
     func setupUI(day: String, month: String, isAnother: Bool = false) {
         self.addSubview(stack)
         let day = makeLabel(text: day)
@@ -57,8 +51,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
             stack.addArrangedSubview($0)
         }
         NSLayoutConstraint.activate([
-            stack.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            stack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
+            stack.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             stack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
             stack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8)
         ])

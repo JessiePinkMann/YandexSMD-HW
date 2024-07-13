@@ -11,29 +11,26 @@ import SwiftUI
 struct CalendarView: UIViewRepresentable {
     @Binding var storage: StorageLogic
     @ObservedObject var modalState: ModalState
-    
-    func makeCoordinator() -> CalendarViewCoordinator {
-        CalendarViewCoordinator(storage: storage, modalState: modalState, uiview: self)
-    }
-    
     let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: CalendarTableViewCell.identifier)
         tableView.backgroundColor = .primaryBG
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
-    
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
+        collectionView.register(
+            CalendarCollectionViewCell.self,
+            forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier
+        )
         collectionView.backgroundColor = .primaryBG
         collectionView.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
-    
     private let plusButton: UIButton = {
         guard let image = UIImage(systemName: "plus.circle.fill")?.withTintColor(.systemBlue) else { return UIButton() }
         let resizedImage = image.resize(withSize: CGSize(width: 50, height: 50))
@@ -42,7 +39,9 @@ struct CalendarView: UIViewRepresentable {
         plusButton.setImage(resizedImage, for: .normal)
         return plusButton
     }()
-    
+    func makeCoordinator() -> CalendarViewCoordinator {
+        CalendarViewCoordinator(storage: storage, modalState: modalState, uiview: self)
+    }
     func makeUIView(context: Context) -> UIView {
         let view = UIView(frame: .zero)
         setupCoordinatorProperties(context: context)
@@ -63,18 +62,18 @@ struct CalendarView: UIViewRepresentable {
             divider2.topAnchor.constraint(equalTo: collectionView.bottomAnchor),
             tableView.topAnchor.constraint(equalTo: divider2.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            plusButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            plusButton.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         return view
     }
-    
     func updateUIView(_ uiView: UIView, context: Context) {
         if modalState.didDismiss {
-            context.coordinator.updateData()
-            modalState.didDismiss = false
+            DispatchQueue.main.async {
+                context.coordinator.updateData()
+                modalState.didDismiss = false
+            }
         }
     }
-    
     private func makeDivider() -> UIView {
         let divider = UIView()
         divider.backgroundColor = .gray
@@ -83,7 +82,6 @@ struct CalendarView: UIViewRepresentable {
         ])
         return divider
     }
-    
     private func setupCoordinatorProperties(context: Context) {
         collectionView.dataSource = context.coordinator
         collectionView.delegate = context.coordinator

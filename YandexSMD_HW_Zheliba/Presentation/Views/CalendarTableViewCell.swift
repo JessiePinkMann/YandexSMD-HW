@@ -10,7 +10,6 @@ import SwiftUI
 
 class CalendarTableViewCell: UITableViewCell {
     static let identifier = "StrikethroughTableViewCell"
-    
     var circle: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
         view.layer.cornerRadius = view.bounds.size.width/2
@@ -18,27 +17,23 @@ class CalendarTableViewCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
     override func prepareForReuse() {
         textLabel?.attributedText = nil
         circle.removeFromSuperview()
     }
-    
     func setupTextLabel(item: TodoItem) {
         self.addSubview(circle)
         NSLayoutConstraint.activate([
             circle.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             circle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             circle.widthAnchor.constraint(equalToConstant: 15),
-            circle.heightAnchor.constraint(equalToConstant: 15),
+            circle.heightAnchor.constraint(equalToConstant: 15)
         ])
-        
         if item.isDone {
             let attributes: [NSAttributedString.Key: Any] = [
                 NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue
             ]
             let attributedText = NSAttributedString(string: item.text, attributes: attributes)
-            
             textLabel?.attributedText = attributedText
             textLabel?.textColor = .gray
             circle.backgroundColor = .clear

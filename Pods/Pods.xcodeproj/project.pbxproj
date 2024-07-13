@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02CA399479851BCC8C5B01B4180DF659 /* Pods-YandexSMD_HW_Zheliba-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5DCA163A3D72DDE7AEE49FD8ED5C09 /* Pods-YandexSMD_HW_Zheliba-dummy.m */; };
+		062B27FBB514EC04597D206A82B6939F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		31AF2A738299D62E8711E1F444AAB31A /* Pods-YandexSMD_HW_Zheliba-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F0E748922B2FAB48E2285CF9C9B1E7 /* Pods-YandexSMD_HW_Zheliba-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9355F022F2B4E09945BAADC562F3A153 /* Pods-YandexSMD_HW_ZhelibaTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0A84314AE64CAFA801FA0288A72A3F /* Pods-YandexSMD_HW_ZhelibaTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC37F5DB2121118B12442D4DDE54D163 /* Pods-YandexSMD_HW_ZhelibaTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B55CCE1150FA7C427D06106F99921C09 /* Pods-YandexSMD_HW_ZhelibaTests-dummy.m */; };
+		EE3E00BD90477444AA706600AB197778 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB51C77D2059C42B17E1D1B8E13133BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E8497CB0750AF69A112718749F25CE96;
+			remoteInfo = "Pods-YandexSMD_HW_Zheliba";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03F0E748922B2FAB48E2285CF9C9B1E7 /* Pods-YandexSMD_HW_Zheliba-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YandexSMD_HW_Zheliba-umbrella.h"; sourceTree = "<group>"; };
+		4BD4882BA9F62B6DCC8BF4378604562B /* Pods-YandexSMD_HW_ZhelibaTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YandexSMD_HW_ZhelibaTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4C42030EBE650DAC2BE62F203CF00354 /* Pods-YandexSMD_HW_ZhelibaTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YandexSMD_HW_ZhelibaTests-Info.plist"; sourceTree = "<group>"; };
+		5D39D8B37AF17589086A908F85DC4B02 /* Pods-YandexSMD_HW_ZhelibaTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-YandexSMD_HW_ZhelibaTests"; path = Pods_YandexSMD_HW_ZhelibaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		839B1991EDD47A57262F4EA76D15C2C0 /* Pods-YandexSMD_HW_ZhelibaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YandexSMD_HW_ZhelibaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8A9F571CB68EDD4E2B80648ED584889B /* Pods-YandexSMD_HW_Zheliba-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YandexSMD_HW_Zheliba-Info.plist"; sourceTree = "<group>"; };
+		93292A103D6CBB40E7AD2F40525BA9D4 /* Pods-YandexSMD_HW_ZhelibaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YandexSMD_HW_ZhelibaTests.release.xcconfig"; sourceTree = "<group>"; };
+		994A01D6EA40166A9DC713B0B5DBBDD8 /* Pods-YandexSMD_HW_Zheliba */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-YandexSMD_HW_Zheliba"; path = Pods_YandexSMD_HW_Zheliba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E2E87A609C239D984B803209F6FACDF /* Pods-YandexSMD_HW_ZhelibaTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YandexSMD_HW_ZhelibaTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		A3FA3867E4BE430D78D6301D6559FAAE /* Pods-YandexSMD_HW_Zheliba.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-YandexSMD_HW_Zheliba.modulemap"; sourceTree = "<group>"; };
+		B55CCE1150FA7C427D06106F99921C09 /* Pods-YandexSMD_HW_ZhelibaTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YandexSMD_HW_ZhelibaTests-dummy.m"; sourceTree = "<group>"; };
+		BBEA88B5450BC59BB579470EC5677B41 /* Pods-YandexSMD_HW_Zheliba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YandexSMD_HW_Zheliba.release.xcconfig"; sourceTree = "<group>"; };
+		CE0A84314AE64CAFA801FA0288A72A3F /* Pods-YandexSMD_HW_ZhelibaTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YandexSMD_HW_ZhelibaTests-umbrella.h"; sourceTree = "<group>"; };
+		DDCD42D47F7ACE08C78DF8E39EEDC0B4 /* Pods-YandexSMD_HW_Zheliba-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YandexSMD_HW_Zheliba-acknowledgements.plist"; sourceTree = "<group>"; };
+		E0078FCFE13DBC5758D790C89E99D558 /* Pods-YandexSMD_HW_ZhelibaTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-YandexSMD_HW_ZhelibaTests.modulemap"; sourceTree = "<group>"; };
+		E695DFD4D8167B6794573A4EEC31EE6E /* Pods-YandexSMD_HW_Zheliba-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YandexSMD_HW_Zheliba-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F47B0978CD7D833642AA34710323A750 /* Pods-YandexSMD_HW_Zheliba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YandexSMD_HW_Zheliba.debug.xcconfig"; sourceTree = "<group>"; };
+		FA5DCA163A3D72DDE7AEE49FD8ED5C09 /* Pods-YandexSMD_HW_Zheliba-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YandexSMD_HW_Zheliba-dummy.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		41ADDBD3CDFC124EEBCD50A7ED0A9DC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				062B27FBB514EC04597D206A82B6939F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46ED9D62ADD3ED95FC65836563C3FE1E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE3E00BD90477444AA706600AB197778 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		375021CB1D6C9FE9B98CEDD64B9C9ADA /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF8E60D1CBD9FCC132F418B86A32A180 /* Pods-YandexSMD_HW_Zheliba */,
+				77D998FAE637117314211104413E73DE /* Pods-YandexSMD_HW_ZhelibaTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		77D998FAE637117314211104413E73DE /* Pods-YandexSMD_HW_ZhelibaTests */ = {
+			isa = PBXGroup;
+			children = (
+				E0078FCFE13DBC5758D790C89E99D558 /* Pods-YandexSMD_HW_ZhelibaTests.modulemap */,
+				4BD4882BA9F62B6DCC8BF4378604562B /* Pods-YandexSMD_HW_ZhelibaTests-acknowledgements.markdown */,
+				9E2E87A609C239D984B803209F6FACDF /* Pods-YandexSMD_HW_ZhelibaTests-acknowledgements.plist */,
+				B55CCE1150FA7C427D06106F99921C09 /* Pods-YandexSMD_HW_ZhelibaTests-dummy.m */,
+				4C42030EBE650DAC2BE62F203CF00354 /* Pods-YandexSMD_HW_ZhelibaTests-Info.plist */,
+				CE0A84314AE64CAFA801FA0288A72A3F /* Pods-YandexSMD_HW_ZhelibaTests-umbrella.h */,
+				839B1991EDD47A57262F4EA76D15C2C0 /* Pods-YandexSMD_HW_ZhelibaTests.debug.xcconfig */,
+				93292A103D6CBB40E7AD2F40525BA9D4 /* Pods-YandexSMD_HW_ZhelibaTests.release.xcconfig */,
+			);
+			name = "Pods-YandexSMD_HW_ZhelibaTests";
+			path = "Target Support Files/Pods-YandexSMD_HW_ZhelibaTests";
+			sourceTree = "<group>";
+		};
+		AAEEA7BEAE0F9CE8314D823E82364D5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				994A01D6EA40166A9DC713B0B5DBBDD8 /* Pods-YandexSMD_HW_Zheliba */,
+				5D39D8B37AF17589086A908F85DC4B02 /* Pods-YandexSMD_HW_ZhelibaTests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				AAEEA7BEAE0F9CE8314D823E82364D5A /* Products */,
+				375021CB1D6C9FE9B98CEDD64B9C9ADA /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		CF8E60D1CBD9FCC132F418B86A32A180 /* Pods-YandexSMD_HW_Zheliba */ = {
+			isa = PBXGroup;
+			children = (
+				A3FA3867E4BE430D78D6301D6559FAAE /* Pods-YandexSMD_HW_Zheliba.modulemap */,
+				E695DFD4D8167B6794573A4EEC31EE6E /* Pods-YandexSMD_HW_Zheliba-acknowledgements.markdown */,
+				DDCD42D47F7ACE08C78DF8E39EEDC0B4 /* Pods-YandexSMD_HW_Zheliba-acknowledgements.plist */,
+				FA5DCA163A3D72DDE7AEE49FD8ED5C09 /* Pods-YandexSMD_HW_Zheliba-dummy.m */,
+				8A9F571CB68EDD4E2B80648ED584889B /* Pods-YandexSMD_HW_Zheliba-Info.plist */,
+				03F0E748922B2FAB48E2285CF9C9B1E7 /* Pods-YandexSMD_HW_Zheliba-umbrella.h */,
+				F47B0978CD7D833642AA34710323A750 /* Pods-YandexSMD_HW_Zheliba.debug.xcconfig */,
+				BBEA88B5450BC59BB579470EC5677B41 /* Pods-YandexSMD_HW_Zheliba.release.xcconfig */,
+			);
+			name = "Pods-YandexSMD_HW_Zheliba";
+			path = "Target Support Files/Pods-YandexSMD_HW_Zheliba";
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BAC415E6959A0EEFFBF270EA41888088 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31AF2A738299D62E8711E1F444AAB31A /* Pods-YandexSMD_HW_Zheliba-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5B3B1688A201A1BFDE69B45AABD226D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9355F022F2B4E09945BAADC562F3A153 /* Pods-YandexSMD_HW_ZhelibaTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6EDC073B1B132B8AC0B58A02928E518F /* Pods-YandexSMD_HW_ZhelibaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFE6CF825A66762D42F1480616F2EE54 /* Build configuration list for PBXNativeTarget "Pods-YandexSMD_HW_ZhelibaTests" */;
+			buildPhases = (
+				F5B3B1688A201A1BFDE69B45AABD226D /* Headers */,
+				AA2A05CD49B090365A90F9AC2257CCF5 /* Sources */,
+				46ED9D62ADD3ED95FC65836563C3FE1E /* Frameworks */,
+				FA263BDCA9308B53134A740F5E4F33A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				82153DA514789575E30F6AAAD564B68B /* PBXTargetDependency */,
+			);
+			name = "Pods-YandexSMD_HW_ZhelibaTests";
+			productName = Pods_YandexSMD_HW_ZhelibaTests;
+			productReference = 5D39D8B37AF17589086A908F85DC4B02 /* Pods-YandexSMD_HW_ZhelibaTests */;
+			productType = "com.apple.product-type.framework";
+		};
+		E8497CB0750AF69A112718749F25CE96 /* Pods-YandexSMD_HW_Zheliba */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F2B1A91CB7D3A71768D80DA39FC02C0 /* Build configuration list for PBXNativeTarget "Pods-YandexSMD_HW_Zheliba" */;
+			buildPhases = (
+				BAC415E6959A0EEFFBF270EA41888088 /* Headers */,
+				74CA3BCA83061C87BA3D09E7ECD80F9B /* Sources */,
+				41ADDBD3CDFC124EEBCD50A7ED0A9DC5 /* Frameworks */,
+				748D6F311165700D15CFA39A3C2C02DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-YandexSMD_HW_Zheliba";
+			productName = Pods_YandexSMD_HW_Zheliba;
+			productReference = 994A01D6EA40166A9DC713B0B5DBBDD8 /* Pods-YandexSMD_HW_Zheliba */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = AAEEA7BEAE0F9CE8314D823E82364D5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E8497CB0750AF69A112718749F25CE96 /* Pods-YandexSMD_HW_Zheliba */,
+				6EDC073B1B132B8AC0B58A02928E518F /* Pods-YandexSMD_HW_ZhelibaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		748D6F311165700D15CFA39A3C2C02DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA263BDCA9308B53134A740F5E4F33A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		74CA3BCA83061C87BA3D09E7ECD80F9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02CA399479851BCC8C5B01B4180DF659 /* Pods-YandexSMD_HW_Zheliba-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA2A05CD49B090365A90F9AC2257CCF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC37F5DB2121118B12442D4DDE54D163 /* Pods-YandexSMD_HW_ZhelibaTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		82153DA514789575E30F6AAAD564B68B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-YandexSMD_HW_Zheliba";
+			target = E8497CB0750AF69A112718749F25CE96 /* Pods-YandexSMD_HW_Zheliba */;
+			targetProxy = FB51C77D2059C42B17E1D1B8E13133BD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0026A747E21EA1CE0BABDBB2AAE4D0ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F47B0978CD7D833642AA34710323A750 /* Pods-YandexSMD_HW_Zheliba.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-YandexSMD_HW_Zheliba/Pods-YandexSMD_HW_Zheliba-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-YandexSMD_HW_Zheliba/Pods-YandexSMD_HW_Zheliba.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		39F5B7CD9D2655A0D1F7D42E37920E8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		A2E5919D099E105B74A7466B650A8344 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBEA88B5450BC59BB579470EC5677B41 /* Pods-YandexSMD_HW_Zheliba.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-YandexSMD_HW_Zheliba/Pods-YandexSMD_HW_Zheliba-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-YandexSMD_HW_Zheliba/Pods-YandexSMD_HW_Zheliba.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B919C4F4C9778A62D41084C576EB4D2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93292A103D6CBB40E7AD2F40525BA9D4 /* Pods-YandexSMD_HW_ZhelibaTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-YandexSMD_HW_ZhelibaTests/Pods-YandexSMD_HW_ZhelibaTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-YandexSMD_HW_ZhelibaTests/Pods-YandexSMD_HW_ZhelibaTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C873D3C071BDDC046D6E8F63C69C2591 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		D616ECD3BF4D7496482D1B666DD57619 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 839B1991EDD47A57262F4EA76D15C2C0 /* Pods-YandexSMD_HW_ZhelibaTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-YandexSMD_HW_ZhelibaTests/Pods-YandexSMD_HW_ZhelibaTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-YandexSMD_HW_ZhelibaTests/Pods-YandexSMD_HW_ZhelibaTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39F5B7CD9D2655A0D1F7D42E37920E8B /* Debug */,
+				C873D3C071BDDC046D6E8F63C69C2591 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F2B1A91CB7D3A71768D80DA39FC02C0 /* Build configuration list for PBXNativeTarget "Pods-YandexSMD_HW_Zheliba" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0026A747E21EA1CE0BABDBB2AAE4D0ED /* Debug */,
+				A2E5919D099E105B74A7466B650A8344 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFE6CF825A66762D42F1480616F2EE54 /* Build configuration list for PBXNativeTarget "Pods-YandexSMD_HW_ZhelibaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D616ECD3BF4D7496482D1B666DD57619 /* Debug */,
+				B919C4F4C9778A62D41084C576EB4D2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
