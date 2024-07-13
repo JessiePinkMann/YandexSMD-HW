@@ -6,17 +6,36 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = SwiftLint;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		02CA399479851BCC8C5B01B4180DF659 /* Pods-YandexSMD_HW_Zheliba-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5DCA163A3D72DDE7AEE49FD8ED5C09 /* Pods-YandexSMD_HW_Zheliba-dummy.m */; };
-		062B27FBB514EC04597D206A82B6939F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		31AF2A738299D62E8711E1F444AAB31A /* Pods-YandexSMD_HW_Zheliba-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F0E748922B2FAB48E2285CF9C9B1E7 /* Pods-YandexSMD_HW_Zheliba-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55B4E662CBD581F6A393DB2C1801B761 /* Pods-YandexSMD_HW_Zheliba-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F0E748922B2FAB48E2285CF9C9B1E7 /* Pods-YandexSMD_HW_Zheliba-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9355F022F2B4E09945BAADC562F3A153 /* Pods-YandexSMD_HW_ZhelibaTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0A84314AE64CAFA801FA0288A72A3F /* Pods-YandexSMD_HW_ZhelibaTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF42AD92183E8AD02B1212E54F63AACF /* Pods-YandexSMD_HW_Zheliba-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5DCA163A3D72DDE7AEE49FD8ED5C09 /* Pods-YandexSMD_HW_Zheliba-dummy.m */; };
 		DC37F5DB2121118B12442D4DDE54D163 /* Pods-YandexSMD_HW_ZhelibaTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B55CCE1150FA7C427D06106F99921C09 /* Pods-YandexSMD_HW_ZhelibaTests-dummy.m */; };
 		EE3E00BD90477444AA706600AB197778 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		F4960E6D2CD7ACA6A447FAE0AA033122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FB51C77D2059C42B17E1D1B8E13133BD /* PBXContainerItemProxy */ = {
+		D6084BAA94AA81E5C5BA55F508C7698F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B60EC2A583F24ACBB69C113F5488B9;
+			remoteInfo = SwiftLint;
+		};
+		FB766AE043298745B30BC72D462D7E66 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -27,10 +46,12 @@
 
 /* Begin PBXFileReference section */
 		03F0E748922B2FAB48E2285CF9C9B1E7 /* Pods-YandexSMD_HW_Zheliba-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YandexSMD_HW_Zheliba-umbrella.h"; sourceTree = "<group>"; };
+		3EC0124719FE8EF5FDDD72C26F8A2F57 /* SwiftLint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.debug.xcconfig; sourceTree = "<group>"; };
 		4BD4882BA9F62B6DCC8BF4378604562B /* Pods-YandexSMD_HW_ZhelibaTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YandexSMD_HW_ZhelibaTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4C42030EBE650DAC2BE62F203CF00354 /* Pods-YandexSMD_HW_ZhelibaTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YandexSMD_HW_ZhelibaTests-Info.plist"; sourceTree = "<group>"; };
 		5D39D8B37AF17589086A908F85DC4B02 /* Pods-YandexSMD_HW_ZhelibaTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-YandexSMD_HW_ZhelibaTests"; path = Pods_YandexSMD_HW_ZhelibaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7EAB1DA481EDDC005A251D3A5E6BE4CD /* SwiftLint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.release.xcconfig; sourceTree = "<group>"; };
 		839B1991EDD47A57262F4EA76D15C2C0 /* Pods-YandexSMD_HW_ZhelibaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YandexSMD_HW_ZhelibaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8A9F571CB68EDD4E2B80648ED584889B /* Pods-YandexSMD_HW_Zheliba-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YandexSMD_HW_Zheliba-Info.plist"; sourceTree = "<group>"; };
 		93292A103D6CBB40E7AD2F40525BA9D4 /* Pods-YandexSMD_HW_ZhelibaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YandexSMD_HW_ZhelibaTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -49,19 +70,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		41ADDBD3CDFC124EEBCD50A7ED0A9DC5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				062B27FBB514EC04597D206A82B6939F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		46ED9D62ADD3ED95FC65836563C3FE1E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				EE3E00BD90477444AA706600AB197778 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6A23DF16167CDCC779CC9B84C555E91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4960E6D2CD7ACA6A447FAE0AA033122 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +122,24 @@
 			path = "Target Support Files/Pods-YandexSMD_HW_ZhelibaTests";
 			sourceTree = "<group>";
 		};
+		7FDA596DBE0337ACDFE55A210D54EF26 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3EC0124719FE8EF5FDDD72C26F8A2F57 /* SwiftLint.debug.xcconfig */,
+				7EAB1DA481EDDC005A251D3A5E6BE4CD /* SwiftLint.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftLint";
+			sourceTree = "<group>";
+		};
+		965877409E01FB3D85D85E90E6B30185 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D96179D43A67C5D5323B0682D32C133C /* SwiftLint */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AAEEA7BEAE0F9CE8314D823E82364D5A /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +154,7 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				965877409E01FB3D85D85E90E6B30185 /* Pods */,
 				AAEEA7BEAE0F9CE8314D823E82364D5A /* Products */,
 				375021CB1D6C9FE9B98CEDD64B9C9ADA /* Targets Support Files */,
 			);
@@ -144,14 +184,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D96179D43A67C5D5323B0682D32C133C /* SwiftLint */ = {
+			isa = PBXGroup;
+			children = (
+				7FDA596DBE0337ACDFE55A210D54EF26 /* Support Files */,
+			);
+			name = SwiftLint;
+			path = SwiftLint;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		BAC415E6959A0EEFFBF270EA41888088 /* Headers */ = {
+		27E45DBC38241D0AE4256D479411A630 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31AF2A738299D62E8711E1F444AAB31A /* Pods-YandexSMD_HW_Zheliba-umbrella.h in Headers */,
+				55B4E662CBD581F6A393DB2C1801B761 /* Pods-YandexSMD_HW_Zheliba-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +227,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				82153DA514789575E30F6AAAD564B68B /* PBXTargetDependency */,
+				65C717AE02F914081760F0774B3D7B5E /* PBXTargetDependency */,
 			);
 			name = "Pods-YandexSMD_HW_ZhelibaTests";
 			productName = Pods_YandexSMD_HW_ZhelibaTests;
@@ -187,16 +236,17 @@
 		};
 		E8497CB0750AF69A112718749F25CE96 /* Pods-YandexSMD_HW_Zheliba */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4F2B1A91CB7D3A71768D80DA39FC02C0 /* Build configuration list for PBXNativeTarget "Pods-YandexSMD_HW_Zheliba" */;
+			buildConfigurationList = F71C42DCF3E78B33570F7B0987F26440 /* Build configuration list for PBXNativeTarget "Pods-YandexSMD_HW_Zheliba" */;
 			buildPhases = (
-				BAC415E6959A0EEFFBF270EA41888088 /* Headers */,
-				74CA3BCA83061C87BA3D09E7ECD80F9B /* Sources */,
-				41ADDBD3CDFC124EEBCD50A7ED0A9DC5 /* Frameworks */,
-				748D6F311165700D15CFA39A3C2C02DA /* Resources */,
+				27E45DBC38241D0AE4256D479411A630 /* Headers */,
+				028E0105CB460140F4779C542C43C2E6 /* Sources */,
+				B6A23DF16167CDCC779CC9B84C555E91 /* Frameworks */,
+				09307B352F9AD6ED7DA94F3C016DCD16 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3E8E913CB95D2C890D8FEDD7F3FC4FEA /* PBXTargetDependency */,
 			);
 			name = "Pods-YandexSMD_HW_Zheliba";
 			productName = Pods_YandexSMD_HW_Zheliba;
@@ -227,12 +277,13 @@
 			targets = (
 				E8497CB0750AF69A112718749F25CE96 /* Pods-YandexSMD_HW_Zheliba */,
 				6EDC073B1B132B8AC0B58A02928E518F /* Pods-YandexSMD_HW_ZhelibaTests */,
+				52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		748D6F311165700D15CFA39A3C2C02DA /* Resources */ = {
+		09307B352F9AD6ED7DA94F3C016DCD16 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -249,11 +300,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		74CA3BCA83061C87BA3D09E7ECD80F9B /* Sources */ = {
+		028E0105CB460140F4779C542C43C2E6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02CA399479851BCC8C5B01B4180DF659 /* Pods-YandexSMD_HW_Zheliba-dummy.m in Sources */,
+				CF42AD92183E8AD02B1212E54F63AACF /* Pods-YandexSMD_HW_Zheliba-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,18 +319,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		82153DA514789575E30F6AAAD564B68B /* PBXTargetDependency */ = {
+		3E8E913CB95D2C890D8FEDD7F3FC4FEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftLint;
+			target = 52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */;
+			targetProxy = D6084BAA94AA81E5C5BA55F508C7698F /* PBXContainerItemProxy */;
+		};
+		65C717AE02F914081760F0774B3D7B5E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-YandexSMD_HW_Zheliba";
 			target = E8497CB0750AF69A112718749F25CE96 /* Pods-YandexSMD_HW_Zheliba */;
-			targetProxy = FB51C77D2059C42B17E1D1B8E13133BD /* PBXContainerItemProxy */;
+			targetProxy = FB766AE043298745B30BC72D462D7E66 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0026A747E21EA1CE0BABDBB2AAE4D0ED /* Debug */ = {
+		0F96EEC3F7E53E9E567B2B23CF14DADE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F47B0978CD7D833642AA34710323A750 /* Pods-YandexSMD_HW_Zheliba.debug.xcconfig */;
+			baseConfigurationReference = BBEA88B5450BC59BB579470EC5677B41 /* Pods-YandexSMD_HW_Zheliba.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -309,10 +366,29 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
+		};
+		26EA5A9600226D2B7D8D25152A304F3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EAB1DA481EDDC005A251D3A5E6BE4CD /* SwiftLint.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
 		};
 		39F5B7CD9D2655A0D1F7D42E37920E8B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -380,9 +456,9 @@
 			};
 			name = Debug;
 		};
-		A2E5919D099E105B74A7466B650A8344 /* Release */ = {
+		64BB5F0383F354F00501D8A6097181B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BBEA88B5450BC59BB579470EC5677B41 /* Pods-YandexSMD_HW_Zheliba.release.xcconfig */;
+			baseConfigurationReference = F47B0978CD7D833642AA34710323A750 /* Pods-YandexSMD_HW_Zheliba.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -412,11 +488,10 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		B919C4F4C9778A62D41084C576EB4D2B /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -555,6 +630,23 @@
 			};
 			name = Debug;
 		};
+		E9E1A48A750B946DE9877594C6E735E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EC0124719FE8EF5FDDD72C26F8A2F57 /* SwiftLint.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -567,11 +659,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4F2B1A91CB7D3A71768D80DA39FC02C0 /* Build configuration list for PBXNativeTarget "Pods-YandexSMD_HW_Zheliba" */ = {
+		AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0026A747E21EA1CE0BABDBB2AAE4D0ED /* Debug */,
-				A2E5919D099E105B74A7466B650A8344 /* Release */,
+				E9E1A48A750B946DE9877594C6E735E4 /* Debug */,
+				26EA5A9600226D2B7D8D25152A304F3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -581,6 +673,15 @@
 			buildConfigurations = (
 				D616ECD3BF4D7496482D1B666DD57619 /* Debug */,
 				B919C4F4C9778A62D41084C576EB4D2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F71C42DCF3E78B33570F7B0987F26440 /* Build configuration list for PBXNativeTarget "Pods-YandexSMD_HW_Zheliba" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64BB5F0383F354F00501D8A6097181B2 /* Debug */,
+				0F96EEC3F7E53E9E567B2B23CF14DADE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

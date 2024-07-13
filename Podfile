@@ -6,7 +6,7 @@ target 'YandexSMD_HW_Zheliba' do
   use_frameworks!
 
   # Pods for YandexSMD_HW_Zheliba
-  # pod 'SwiftLint'
+  pod 'SwiftLint'
 
   target 'YandexSMD_HW_ZhelibaTests' do
     inherit! :search_paths
