@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import CocoaLumberjackSwift
 
 struct MainView: View {
     @StateObject private var viewModel = MainViewModel()
     @StateObject private var modalState = ModalState()
-    
+    init() {
+        setupLogger()
+    }
     var menu: some View {
         Menu {
             Button(
@@ -41,9 +44,8 @@ struct MainView: View {
             }
         }
     }
-    
     var sectionHeader: some View {
-        HStack() {
+        HStack {
             Text("Выполнено — \(viewModel.count)")
                 .frame(maxWidth: .infinity, alignment: .leading)
             menu
@@ -52,14 +54,12 @@ struct MainView: View {
         .font(.system(size: 17))
         .padding(.bottom, 12)
     }
-    
     var footer: some View {
         Text("Новое")
             .padding(.leading, 34)
             .padding([.bottom, .top], 8)
             .foregroundStyle(.gray)
     }
-    
     var section: some View {
         Section {
             ForEach($viewModel.sortedItems) { item in
@@ -68,7 +68,11 @@ struct MainView: View {
                     .environmentObject(modalState)
                     .swipeActions(edge: .leading) {
                         Button {
-                            viewModel.updateItem(item: viewModel.storage.createItemWithAnotherIsDone(item: item.wrappedValue))
+                            viewModel.updateItem(
+                                item: viewModel.storage.createItemWithAnotherIsDone(
+                                    item: item.wrappedValue
+                                )
+                            )
                         } label: {
                             Image(systemName: "checkmark.circle.fill")
                         }
@@ -103,7 +107,6 @@ struct MainView: View {
         }
         .listRowInsets(.init(top: 0, leading: 16, bottom: 0, trailing: 0))
     }
-    
     var plusButton: some View {
         Button(
             action: {
@@ -117,19 +120,19 @@ struct MainView: View {
             }
         )
     }
-    
     var calendarView: some View {
         CalendarView(storage: $viewModel.storage, modalState: modalState)
             .navigationTitle("Мои дела")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbarRole(.editor)
             .scrollContentBackground(.hidden)
             .background(Color.primaryBG)
+            .onAppear {
+                DDLogInfo("\(#function): CalendarView appeared")
+            }
     }
-    
     var content: some View {
         VStack {
-            List() {
+            List {
                 section
             }
             .navigationTitle("Мои дела")
@@ -151,24 +154,23 @@ struct MainView: View {
                     }
                 }
             }
-            
         }.safeAreaInset(edge: VerticalEdge.bottom) {
             plusButton
         }
     }
-    
     var body: some View {
         chooseView()
         .onAppear {
+            DDLogInfo("\(#function): MainView appeared")
             do {
                 try viewModel.loadItems()
+                DDLogInfo("\(#function): the items have been loaded successfully")
             } catch {
-                print("Ошибка при загрузке данных из JSON: \(error)")
+                DDLogError("\(#function): \(error.localizedDescription)")
             }
         }
         .modifier(SheetModifier(modalState: modalState, storage: viewModel.storage))
     }
-    
     @ViewBuilder
     func chooseView() -> some View {
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -190,9 +192,13 @@ struct MainView: View {
             }
         }
     }
+    func setupLogger() {
+        let consoleLogger = DDOSLogger.sharedInstance
+        consoleLogger.logFormatter = LogFormatter()
+        DDLog.add(consoleLogger)
+    }
 }
 
 #Preview {
     MainView()
 }
-

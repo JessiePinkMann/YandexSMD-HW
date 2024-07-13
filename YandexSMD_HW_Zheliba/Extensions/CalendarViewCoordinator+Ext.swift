@@ -5,27 +5,29 @@
 //  Created by Egor Anoshin on 06.07.2024.
 //
 
-import Foundation
-import SwiftUI
+import UIKit
 import Combine
+import CocoaLumberjackSwift
 
 extension CalendarViewCoordinator: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         countNumberOfSections()
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         storage.getItemsForSection(section: section).count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CalendarTableViewCell.identifier, for: indexPath) as? CalendarTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: CalendarTableViewCell.identifier,
+            for: indexPath
+        ) as? CalendarTableViewCell else {
+            return UITableViewCell()
+        }
         let item = storage.getItemsForSection(section: indexPath.section)[indexPath.row]
         cell.setupTextLabel(item: item)
         cell.selectionStyle = .none
         return cell
     }
-    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == sections.count {
             return "Другое"
@@ -38,35 +40,35 @@ extension CalendarViewCoordinator: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         56
     }
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         40
     }
-    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         0
     }
-    
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         UIView()
     }
-    
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(
+        _ tableView: UITableView,
+        leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
         let doneAction = makeAction(isLeading: true, indexPath: indexPath, tableView: tableView)
         doneAction.image = UIImage(systemName: "checkmark.circle")
         doneAction.backgroundColor = .systemGreen
         let configuration = UISwipeActionsConfiguration(actions: [doneAction])
         return configuration
     }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
         let unreadyAction = makeAction(isLeading: false, indexPath: indexPath, tableView: tableView)
         unreadyAction.image = UIImage(systemName: "checkmark.circle.badge.xmark")
         unreadyAction.backgroundColor = .systemGray
         let configuration = UISwipeActionsConfiguration(actions: [unreadyAction])
         return configuration
     }
-    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         if let currentText = header.textLabel?.text {
@@ -74,7 +76,6 @@ extension CalendarViewCoordinator: UITableViewDelegate {
             header.textLabel?.font = .systemFont(ofSize: 16)
         }
     }
-    
     func makeAction(isLeading: Bool, indexPath: IndexPath, tableView: UITableView) -> UIContextualAction {
         return UIContextualAction(style: .normal, title: nil) { (_, _, completionHandler) in
             let item = self.storage.getItemsForSection(section: indexPath.section)[indexPath.row]
@@ -92,11 +93,19 @@ extension CalendarViewCoordinator: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         countNumberOfSections()
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCollectionViewCell.identifier, for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell() }
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: CalendarCollectionViewCell.identifier,
+            for: indexPath
+        ) as? CalendarCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         if indexPath == selectedItem {
             cell.isSelected = true
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
         if indexPath.row == sections.count {
             cell.setupUI(day: "Другое", month: "", isAnother: true)
@@ -110,35 +119,35 @@ extension CalendarViewCoordinator: UICollectionViewDataSource {
 }
 
 extension CalendarViewCoordinator: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         return CGSize(width: 80, height: 80)
     }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        view.collectionView.deselectItem(at: selectedItem, animated: false)
-        [selectedItem, indexPath].forEach {
-            if let cell = collectionView.cellForItem(at: $0) as? CalendarCollectionViewCell {
-                cell.configureCell()
-            }
-        }
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        guard selectedItem != indexPath else { return }
         selectedItem = indexPath
         let indexPath = IndexPath(row: 0, section: indexPath.row)
-        isSelectedFromCollectionView = true
-        view.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
-        isSelectedFromCollectionView = false
+        isSelectedInCollectionView = true
+        view.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        view.collectionView.reloadData()
     }
 }
 
 extension CalendarViewCoordinator: UIScrollViewDelegate {
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        isSelectedInCollectionView = false
+    }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let tableView = scrollView as? UITableView, !isSelectedFromCollectionView else { return }
-        if let topIndexPath = tableView.indexPathsForVisibleRows?.first {
-            let indexPath = IndexPath(row: topIndexPath.section, section: 0)
-            view.collectionView.deselectItem(at: selectedItem, animated: false)
-            view.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
-            selectedItem = indexPath
-            view.collectionView.reloadData()
+        let tableView = view.tableView
+        if scrollView == tableView && !isSelectedInCollectionView {
+            if let topIndexPath = tableView.indexPathsForVisibleRows?.first {
+                let indexPath = IndexPath(row: topIndexPath.section, section: 0)
+                selectedItem = indexPath
+                view.collectionView.reloadData()
+            }
         }
     }
 }

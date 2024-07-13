@@ -15,8 +15,7 @@ struct ColorModifier: ViewModifier {
             content
                 .foregroundStyle(.gray)
                 .strikethrough(color: .gray)
-        }
-        else {
+        } else {
             content
                 .foregroundStyle(.primary)
                 .strikethrough(false)

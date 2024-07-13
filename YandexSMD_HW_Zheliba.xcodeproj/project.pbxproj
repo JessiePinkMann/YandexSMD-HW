@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		359FFCBA175E2D77A26C390D /* Pods_YandexSMD_HW_Zheliba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3829DC31E6CF1EE4C461494A /* Pods_YandexSMD_HW_Zheliba.framework */; };
+		43F4DEB9500F0E93B8BD2C9F /* Pods_YandexSMD_HW_ZhelibaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A6B776238C67552CBF053D /* Pods_YandexSMD_HW_ZhelibaTests.framework */; };
 		4F355BFD2C301CBD0049DBAB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355BFC2C301CBD0049DBAB /* MainViewModel.swift */; };
 		4F355BFF2C301CE10049DBAB /* ModalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355BFE2C301CE10049DBAB /* ModalState.swift */; };
 		4F355C032C301D990049DBAB /* Importants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C022C301D990049DBAB /* Importants.swift */; };
@@ -33,6 +35,18 @@
 		4F355C362C389AB20049DBAB /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C352C389AB20049DBAB /* CalendarTableViewCell.swift */; };
 		4F355C382C389B300049DBAB /* StorageLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C372C389B300049DBAB /* StorageLogic.swift */; };
 		4F355C3A2C389B670049DBAB /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F355C392C389B670049DBAB /* Category.swift */; };
+		4F60F9FC2C42B4FF00914854 /* DeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60F9FB2C42B4FF00914854 /* DeadlineView.swift */; };
+		4F60F9FE2C42B55300914854 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60F9FD2C42B55300914854 /* TextFieldView.swift */; };
+		4F60FA002C42B56F00914854 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60F9FF2C42B56F00914854 /* CategoryView.swift */; };
+		4F60FA022C42B58200914854 /* ImportanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA012C42B58200914854 /* ImportanceView.swift */; };
+		4F60FA042C42B5C200914854 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA032C42B5C200914854 /* DetailsViewModel.swift */; };
+		4F60FA062C42B64E00914854 /* LogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA052C42B64E00914854 /* LogFormatter.swift */; };
+		4F60FA082C42B6B800914854 /* URLSessionDataTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA072C42B6B800914854 /* URLSessionDataTaskManager.swift */; };
+		4F60FA0A2C42B71600914854 /* UINavigationController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA092C42B71600914854 /* UINavigationController+Ext.swift */; };
+		4F60FA0C2C42BE9D00914854 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA0B2C42BE9D00914854 /* ColorPickerView.swift */; };
+		4FBF33CB2C429BF60045634F /* CocoaLumberjack in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBF33CA2C429BF60045634F /* CocoaLumberjack */; };
+		4FBF33CD2C429BF60045634F /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBF33CC2C429BF60045634F /* CocoaLumberjackSwift */; };
+		4FBF33CF2C429BF60045634F /* CocoaLumberjackSwiftLogBackend in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBF33CE2C429BF60045634F /* CocoaLumberjackSwiftLogBackend */; };
 		4FDCD8772C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDCD8762C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift */; };
 		4FDCD8792C25946100E6D5A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDCD8782C25946100E6D5A3 /* ContentView.swift */; };
 		4FDCD87B2C25946300E6D5A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDCD87A2C25946300E6D5A3 /* Assets.xcassets */; };
@@ -52,6 +66,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12249285C880633B7A5AF6F8 /* Pods-YandexSMD_HW_ZhelibaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YandexSMD_HW_ZhelibaTests.debug.xcconfig"; path = "Target Support Files/Pods-YandexSMD_HW_ZhelibaTests/Pods-YandexSMD_HW_ZhelibaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		34A6B776238C67552CBF053D /* Pods_YandexSMD_HW_ZhelibaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YandexSMD_HW_ZhelibaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		375C7DC9A05A8C749398D2C9 /* Pods-YandexSMD_HW_Zheliba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YandexSMD_HW_Zheliba.release.xcconfig"; path = "Target Support Files/Pods-YandexSMD_HW_Zheliba/Pods-YandexSMD_HW_Zheliba.release.xcconfig"; sourceTree = "<group>"; };
+		3829DC31E6CF1EE4C461494A /* Pods_YandexSMD_HW_Zheliba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YandexSMD_HW_Zheliba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F355BFC2C301CBD0049DBAB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4F355BFE2C301CE10049DBAB /* ModalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalState.swift; sourceTree = "<group>"; };
 		4F355C022C301D990049DBAB /* Importants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Importants.swift; sourceTree = "<group>"; };
@@ -78,6 +96,15 @@
 		4F355C352C389AB20049DBAB /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		4F355C372C389B300049DBAB /* StorageLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageLogic.swift; sourceTree = "<group>"; };
 		4F355C392C389B670049DBAB /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		4F60F9FB2C42B4FF00914854 /* DeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineView.swift; sourceTree = "<group>"; };
+		4F60F9FD2C42B55300914854 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		4F60F9FF2C42B56F00914854 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		4F60FA012C42B58200914854 /* ImportanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportanceView.swift; sourceTree = "<group>"; };
+		4F60FA032C42B5C200914854 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		4F60FA052C42B64E00914854 /* LogFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFormatter.swift; sourceTree = "<group>"; };
+		4F60FA072C42B6B800914854 /* URLSessionDataTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskManager.swift; sourceTree = "<group>"; };
+		4F60FA092C42B71600914854 /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
+		4F60FA0B2C42BE9D00914854 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		4FDCD8732C25946100E6D5A3 /* YandexSMD_HW_Zheliba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YandexSMD_HW_Zheliba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FDCD8762C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexSMD_HW_ZhelibaApp.swift; sourceTree = "<group>"; };
 		4FDCD8782C25946100E6D5A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,6 +114,8 @@
 		4FDCD88B2C25A0C200E6D5A3 /* FileCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCache.swift; sourceTree = "<group>"; };
 		4FDCD8902C25A38100E6D5A3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		4FDCD89B2C25A57000E6D5A3 /* YandexSMD_HW_ZhelibaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YandexSMD_HW_ZhelibaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		70D9544D07B52BFDF3774AAF /* Pods-YandexSMD_HW_ZhelibaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YandexSMD_HW_ZhelibaTests.release.xcconfig"; path = "Target Support Files/Pods-YandexSMD_HW_ZhelibaTests/Pods-YandexSMD_HW_ZhelibaTests.release.xcconfig"; sourceTree = "<group>"; };
+		E6A4038D8BD44752ED71B4C5 /* Pods-YandexSMD_HW_Zheliba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YandexSMD_HW_Zheliba.debug.xcconfig"; path = "Target Support Files/Pods-YandexSMD_HW_Zheliba/Pods-YandexSMD_HW_Zheliba.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +123,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FBF33CD2C429BF60045634F /* CocoaLumberjackSwift in Frameworks */,
+				4FBF33CF2C429BF60045634F /* CocoaLumberjackSwiftLogBackend in Frameworks */,
+				4FBF33CB2C429BF60045634F /* CocoaLumberjack in Frameworks */,
+				359FFCBA175E2D77A26C390D /* Pods_YandexSMD_HW_Zheliba.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43F4DEB9500F0E93B8BD2C9F /* Pods_YandexSMD_HW_ZhelibaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +157,7 @@
 				4F355BFC2C301CBD0049DBAB /* MainViewModel.swift */,
 				4F355BFE2C301CE10049DBAB /* ModalState.swift */,
 				4F355C372C389B300049DBAB /* StorageLogic.swift */,
+				4F60FA032C42B5C200914854 /* DetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -156,6 +191,8 @@
 				4F355C2B2C3897D70049DBAB /* UIImage+Ext.swift */,
 				4F355C2F2C3899900049DBAB /* CalendarViewCoordinator.swift */,
 				4F355C312C3899B20049DBAB /* CalendarViewCoordinator+Ext.swift */,
+				4F60FA072C42B6B800914854 /* URLSessionDataTaskManager.swift */,
+				4F60FA092C42B71600914854 /* UINavigationController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -177,6 +214,7 @@
 				4F355C0D2C301ECD0049DBAB /* ColorModifier.swift */,
 				4F355C0F2C301ED50049DBAB /* TextFieldFrameModifier.swift */,
 				4F355C2D2C3897FE0049DBAB /* KeyboardModifier.swift */,
+				4F60FA052C42B64E00914854 /* LogFormatter.swift */,
 			);
 			path = HelpModifiers;
 			sourceTree = "<group>";
@@ -188,6 +226,11 @@
 				4F355C142C301F260049DBAB /* ColorPicker.swift */,
 				4F355C332C389AA10049DBAB /* CalendarCollectionViewCell.swift */,
 				4F355C352C389AB20049DBAB /* CalendarTableViewCell.swift */,
+				4F60F9FB2C42B4FF00914854 /* DeadlineView.swift */,
+				4F60F9FD2C42B55300914854 /* TextFieldView.swift */,
+				4F60F9FF2C42B56F00914854 /* CategoryView.swift */,
+				4F60FA012C42B58200914854 /* ImportanceView.swift */,
+				4F60FA0B2C42BE9D00914854 /* ColorPickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,6 +252,7 @@
 				4FDCD89C2C25A57000E6D5A3 /* YandexSMD_HW_ZhelibaTests */,
 				4FDCD8742C25946100E6D5A3 /* Products */,
 				4FDCD88F2C25A38100E6D5A3 /* Frameworks */,
+				9E16D84B14EA5FC79659E816 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -247,6 +291,8 @@
 			isa = PBXGroup;
 			children = (
 				4FDCD8902C25A38100E6D5A3 /* XCTest.framework */,
+				3829DC31E6CF1EE4C461494A /* Pods_YandexSMD_HW_Zheliba.framework */,
+				34A6B776238C67552CBF053D /* Pods_YandexSMD_HW_ZhelibaTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -260,6 +306,17 @@
 			path = YandexSMD_HW_ZhelibaTests;
 			sourceTree = "<group>";
 		};
+		9E16D84B14EA5FC79659E816 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E6A4038D8BD44752ED71B4C5 /* Pods-YandexSMD_HW_Zheliba.debug.xcconfig */,
+				375C7DC9A05A8C749398D2C9 /* Pods-YandexSMD_HW_Zheliba.release.xcconfig */,
+				12249285C880633B7A5AF6F8 /* Pods-YandexSMD_HW_ZhelibaTests.debug.xcconfig */,
+				70D9544D07B52BFDF3774AAF /* Pods-YandexSMD_HW_ZhelibaTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -267,15 +324,22 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4FDCD8812C25946300E6D5A3 /* Build configuration list for PBXNativeTarget "YandexSMD_HW_Zheliba" */;
 			buildPhases = (
+				3671F369E53E89C59006D74E /* [CP] Check Pods Manifest.lock */,
 				4FDCD86F2C25946100E6D5A3 /* Sources */,
 				4FDCD8702C25946100E6D5A3 /* Frameworks */,
 				4FDCD8712C25946100E6D5A3 /* Resources */,
+				4F60FA0E2C42C76100914854 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = YandexSMD_HW_Zheliba;
+			packageProductDependencies = (
+				4FBF33CA2C429BF60045634F /* CocoaLumberjack */,
+				4FBF33CC2C429BF60045634F /* CocoaLumberjackSwift */,
+				4FBF33CE2C429BF60045634F /* CocoaLumberjackSwiftLogBackend */,
+			);
 			productName = YandexSMD_HW_Zheliba;
 			productReference = 4FDCD8732C25946100E6D5A3 /* YandexSMD_HW_Zheliba.app */;
 			productType = "com.apple.product-type.application";
@@ -284,6 +348,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4FDCD8A12C25A57000E6D5A3 /* Build configuration list for PBXNativeTarget "YandexSMD_HW_ZhelibaTests" */;
 			buildPhases = (
+				5445317413914BC5AE8D38CB /* [CP] Check Pods Manifest.lock */,
 				4FDCD8972C25A57000E6D5A3 /* Sources */,
 				4FDCD8982C25A57000E6D5A3 /* Frameworks */,
 				4FDCD8992C25A57000E6D5A3 /* Resources */,
@@ -327,6 +392,9 @@
 				Base,
 			);
 			mainGroup = 4FDCD86A2C25946100E6D5A3;
+			packageReferences = (
+				4FBF33C92C429BF60045634F /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
+			);
 			productRefGroup = 4FDCD8742C25946100E6D5A3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -356,6 +424,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3671F369E53E89C59006D74E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YandexSMD_HW_Zheliba-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F60FA0E2C42C76100914854 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${SRCROOT}/swiftlint.result",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ -f \"$PODS_ROOT/SwiftLint/swiftlint\" ]; then\n  $PODS_ROOT/SwiftLint/swiftlint\nelse\n  echo \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n";
+		};
+		5445317413914BC5AE8D38CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YandexSMD_HW_ZhelibaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4FDCD86F2C25946100E6D5A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -375,6 +508,7 @@
 				4F355C0C2C301EC40049DBAB /* SheetModifier.swift in Sources */,
 				4FDCD8882C259F0C00E6D5A3 /* TodoItemModel.swift in Sources */,
 				4F355C322C3899B20049DBAB /* CalendarViewCoordinator+Ext.swift in Sources */,
+				4F60FA082C42B6B800914854 /* URLSessionDataTaskManager.swift in Sources */,
 				4F355C182C301F630049DBAB /* MainView.swift in Sources */,
 				4FDCD88C2C25A0C200E6D5A3 /* FileCache.swift in Sources */,
 				4F355C342C389AA10049DBAB /* CalendarCollectionViewCell.swift in Sources */,
@@ -382,11 +516,19 @@
 				4F355C2A2C3897BF0049DBAB /* UIView+Ext.swift in Sources */,
 				4F355C282C3897520049DBAB /* CalendarView.swift in Sources */,
 				4FDCD8772C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift in Sources */,
+				4F60F9FC2C42B4FF00914854 /* DeadlineView.swift in Sources */,
 				4F355C302C3899900049DBAB /* CalendarViewCoordinator.swift in Sources */,
 				4F355BFF2C301CE10049DBAB /* ModalState.swift in Sources */,
+				4F60FA002C42B56F00914854 /* CategoryView.swift in Sources */,
+				4F60FA0C2C42BE9D00914854 /* ColorPickerView.swift in Sources */,
 				4F355C1A2C301F730049DBAB /* DetailsView.swift in Sources */,
 				4F355BFD2C301CBD0049DBAB /* MainViewModel.swift in Sources */,
+				4F60F9FE2C42B55300914854 /* TextFieldView.swift in Sources */,
+				4F60FA022C42B58200914854 /* ImportanceView.swift in Sources */,
+				4F60FA042C42B5C200914854 /* DetailsViewModel.swift in Sources */,
 				4F355C1C2C3020480049DBAB /* UIApplication+Ext.swift in Sources */,
+				4F60FA062C42B64E00914854 /* LogFormatter.swift in Sources */,
+				4F60FA0A2C42B71600914854 /* UINavigationController+Ext.swift in Sources */,
 				4F355C082C301E690049DBAB /* Date+Ext.swift in Sources */,
 				4F355C3A2C389B670049DBAB /* Category.swift in Sources */,
 			);
@@ -533,6 +675,7 @@
 		};
 		4FDCD8822C25946300E6D5A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6A4038D8BD44752ED71B4C5 /* Pods-YandexSMD_HW_Zheliba.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -552,7 +695,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "opium.YandexSMD-HW-Zheliba";
+				PRODUCT_BUNDLE_IDENTIFIER = "YandexSMD-HW-Zheliba";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -562,6 +705,7 @@
 		};
 		4FDCD8832C25946300E6D5A3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 375C7DC9A05A8C749398D2C9 /* Pods-YandexSMD_HW_Zheliba.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -581,7 +725,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "opium.YandexSMD-HW-Zheliba";
+				PRODUCT_BUNDLE_IDENTIFIER = "YandexSMD-HW-Zheliba";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -591,6 +735,7 @@
 		};
 		4FDCD8A22C25A57000E6D5A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12249285C880633B7A5AF6F8 /* Pods-YandexSMD_HW_ZhelibaTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -610,6 +755,7 @@
 		};
 		4FDCD8A32C25A57000E6D5A3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70D9544D07B52BFDF3774AAF /* Pods-YandexSMD_HW_ZhelibaTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -657,6 +803,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4FBF33C92C429BF60045634F /* XCRemoteSwiftPackageReference "CocoaLumberjack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CocoaLumberjack/CocoaLumberjack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.8.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4FBF33CA2C429BF60045634F /* CocoaLumberjack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4FBF33C92C429BF60045634F /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjack;
+		};
+		4FBF33CC2C429BF60045634F /* CocoaLumberjackSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4FBF33C92C429BF60045634F /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjackSwift;
+		};
+		4FBF33CE2C429BF60045634F /* CocoaLumberjackSwiftLogBackend */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4FBF33C92C429BF60045634F /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjackSwiftLogBackend;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4FDCD86B2C25946100E6D5A3 /* Project object */;
 }

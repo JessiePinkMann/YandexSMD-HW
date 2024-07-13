@@ -11,13 +11,11 @@ struct TaskView: View {
     @Binding var item: TodoItem
     @EnvironmentObject var storage: StorageLogic
     @EnvironmentObject var modalState: ModalState
-    
     var circleBackground: some View {
         RoundedRectangle(cornerRadius: 16)
             .fill(item.importance == .important && !item.isDone ? .red.opacity(0.2) : .clear)
             .frame(width: 24, height: 24)
     }
-    
     var circleImage: some View {
         Image(systemName: item.isDone ? "checkmark.circle.fill" : "circle")
             .resizable()
@@ -30,15 +28,12 @@ struct TaskView: View {
                 }
             )
     }
-    
     var textWithExclamationMark: some View {
         Text(Image(systemName: "exclamationmark.2")).foregroundStyle(.red) + Text(item.text)
     }
-    
     var textWithArrowDown: some View {
         Text(Image(systemName: "arrow.down")).foregroundStyle(.gray) + Text(item.text)
     }
-    
     var chevronButton: some View {
         Button(
             action: {
@@ -49,13 +44,11 @@ struct TaskView: View {
             }
         )
     }
-    
     var deadlineLabel: some View {
         (Text(Image(systemName: "calendar")) + Text(item.deadline?.makePrettyString(dateFormat: "d MMMM") ?? ""))
             .foregroundStyle(.gray)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
-    
     var body: some View {
         ZStack(alignment: .trailing) {
             HStack {
@@ -79,7 +72,6 @@ struct TaskView: View {
                 .frame(width: 5)
         }
     }
-    
     @ViewBuilder
     func chooseTextStyle() -> some View {
         switch (item.importance, item.isDone) {
@@ -92,4 +84,3 @@ struct TaskView: View {
         }
     }
 }
-
