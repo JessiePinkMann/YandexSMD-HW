@@ -9,17 +9,22 @@ import SwiftUI
 import CocoaLumberjackSwift
 
 struct MainView: View {
-    @StateObject private var viewModel = MainViewModel()
+    
+    @StateObject private var viewModel = MainViewModel(
+        deviceID: UIDevice.current.identifierForVendor?.uuidString ?? ""
+    )
+    
     @StateObject private var modalState = ModalState()
     init() {
         setupLogger()
     }
+    
     var menu: some View {
         Menu {
             Button(
                 action: {
                     viewModel.changeShowButtonValue()
-                    viewModel.updateSortedItems()
+                    viewModel.updateSortedItems(items: Array(viewModel.storage.getItems().values))
                 },
                 label: {
                     Text(viewModel.showButtonText)
@@ -28,7 +33,7 @@ struct MainView: View {
             Button(
                 action: {
                     viewModel.changeSortButtonValue()
-                    viewModel.updateSortedItems()
+                    viewModel.updateSortedItems(items: Array(viewModel.storage.getItems().values))
                 },
                 label: {
                     Text(viewModel.sortButtonText)
@@ -44,6 +49,7 @@ struct MainView: View {
             }
         }
     }
+    
     var sectionHeader: some View {
         HStack {
             Text("Выполнено — \(viewModel.count)")
@@ -54,17 +60,19 @@ struct MainView: View {
         .font(.system(size: 17))
         .padding(.bottom, 12)
     }
+    
     var footer: some View {
         Text("Новое")
             .padding(.leading, 34)
             .padding([.bottom, .top], 8)
             .foregroundStyle(.gray)
     }
+    
     var section: some View {
         Section {
             ForEach($viewModel.sortedItems) { item in
                 TaskView(item: item)
-                    .environmentObject(viewModel.storage)
+                    .environmentObject(viewModel)
                     .environmentObject(modalState)
                     .swipeActions(edge: .leading) {
                         Button {
@@ -107,6 +115,7 @@ struct MainView: View {
         }
         .listRowInsets(.init(top: 0, leading: 16, bottom: 0, trailing: 0))
     }
+    
     var plusButton: some View {
         Button(
             action: {
@@ -120,8 +129,9 @@ struct MainView: View {
             }
         )
     }
+    
     var calendarView: some View {
-        CalendarView(storage: $viewModel.storage, modalState: modalState)
+        CalendarView(storage: $viewModel.storage, apiManager: $viewModel.apiManager, modalState: modalState)
             .navigationTitle("Мои дела")
             .navigationBarTitleDisplayMode(.inline)
             .scrollContentBackground(.hidden)
@@ -129,7 +139,11 @@ struct MainView: View {
             .onAppear {
                 DDLogInfo("\(#function): CalendarView appeared")
             }
+            .onDisappear {
+                DDLogInfo("\(#function): CalendarView disappeared")
+            }
     }
+    
     var content: some View {
         VStack {
             List {
@@ -153,24 +167,30 @@ struct MainView: View {
                         }
                     }
                 }
+                ToolbarItem(placement: .topBarLeading) {
+                    if viewModel.isActive {
+                        ProgressView()
+                    }
+                }
             }
         }.safeAreaInset(edge: VerticalEdge.bottom) {
             plusButton
         }
     }
+    
     var body: some View {
         chooseView()
         .onAppear {
             DDLogInfo("\(#function): MainView appeared")
-            do {
-                try viewModel.loadItems()
-                DDLogInfo("\(#function): the items have been loaded successfully")
-            } catch {
-                DDLogError("\(#function): \(error.localizedDescription)")
-            }
+            viewModel.loadItems()
         }
-        .modifier(SheetModifier(modalState: modalState, storage: viewModel.storage))
+        .onDisappear {
+            DDLogInfo("\(#function): MainView disappeared")
+        }
+        .modifier(SheetModifier(modalState: modalState, storage: viewModel.storage, apiManager: viewModel.apiManager))
+        .modifier(AlertModifier(apiManager: viewModel.apiManager))
     }
+    
     @ViewBuilder
     func chooseView() -> some View {
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -178,7 +198,7 @@ struct MainView: View {
                 content
             } detail: {
                 if modalState.activateModalView {
-                    DetailsView(modalState: modalState)
+                    DetailsView(modalState: modalState, viewModel: DetailsViewModel(apiManager: viewModel.apiManager))
                         .environmentObject(viewModel.storage)
                 }
                 if modalState.activateCalendarView {
@@ -192,6 +212,7 @@ struct MainView: View {
             }
         }
     }
+    
     func setupLogger() {
         let consoleLogger = DDOSLogger.sharedInstance
         consoleLogger.logFormatter = LogFormatter()

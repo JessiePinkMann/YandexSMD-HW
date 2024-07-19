@@ -1,39 +1,87 @@
-only_rules:
+# You can reference documentation on rules here https://realm.github.io/SwiftLint/rule-directory.html
+disabled_rules: # rule identifiers to exclude from running
+  - attributes
+  - closure_end_indentation
+  - cyclomatic_complexity
+  - discouraged_object_literal
+  - discouraged_optional_collection
+  - explicit_acl
+  - explicit_enum_raw_value
+  - explicit_top_level_acl
+  - explicit_type_interface
+  - extension_access_modifier
+  - file_length
+  - function_body_length
+  - function_parameter_count
+  - generic_type_name
+  - identifier_name
+  - implicit_return
+  - large_tuple
+  - let_var_whitespace
+  - line_length
+  - literal_expression_end_indentation
+  - multiline_arguments
+  - multiline_arguments_brackets
+  - multiline_literal_brackets
+  - multiline_parameters_brackets
+  - nesting
+  - nimble_operator
+  - no_extension_access_modifier
+  - no_grouping_extension
+  - number_separator
+  - object_literal
+  - prefixed_toplevel_constant
+  - quick_discouraged_call
+  - quick_discouraged_focused_test
+  - quick_discouraged_pending_test
+  - raw_value_for_camel_cased_codable_enum
+  - redundant_self_in_closure
+  - redundant_string_enum_value
+  - required_deinit
+  - reduce_into
+  - sorted_enum_cases
+  - sorted_imports
+  - superfluous_else
+  - strict_fileprivate
+  - switch_case_on_newline
+  - trailing_closure
+  - trailing_whitespace
+  - type_body_length
+  - type_contents_order
+  - type_name
+  - unneeded_parentheses_in_closure_argument
+  - todo
+  - vertical_whitespace_opening_braces
+  - vertical_whitespace_between_cases
+  - xct_specific_matcher
+  - nslocalizedstring_require_bundle
+  - file_types_order
+  
+opt_in_rules: # some rules are only opt-in
   - accessibility_trait_for_button
   - array_init
-  - blanket_disable_command
   - block_based_kvo
   - class_delegate_protocol
   - closing_brace
-  - closure_end_indentation
   - closure_parameter_position
-  - closure_spacing
   - collection_alignment
   - colon
   - comma
-  - comma_inheritance
   - compiler_protocol_init
-  - computed_accessors_order
   - conditional_returns_on_newline
   - contains_over_filter_count
   - contains_over_filter_is_empty
   - contains_over_first_not_nil
   - contains_over_range_nil_comparison
   - control_statement
-  - custom_rules
-  - deployment_target
+  - convenience_type
+  - custom_todo
   - direct_return
-  - discarded_notification_center_observer
-  - discouraged_assert
   - discouraged_direct_init
-  - discouraged_none_name
-  - discouraged_object_literal
   - discouraged_optional_boolean
-  - discouraged_optional_collection
-  - duplicate_conditions
+  - discarded_notification_center_observer
   - duplicate_enum_cases
   - duplicate_imports
-  - duplicated_key_in_dictionary_literal
   - dynamic_inline
   - empty_collection_literal
   - empty_count
@@ -42,22 +90,18 @@ only_rules:
   - empty_parentheses_with_trailing_closure
   - empty_string
   - empty_xctest_method
-  - enum_case_associated_values_count
   - explicit_init
   - fallthrough
   - fatal_error_message
-  - final_test_case
   - first_where
   - flatmap_over_map_reduce
   - for_where
-  - generic_type_name
-  - ibinspectable_in_extension
+  - force_cast
+  - force_try
+  - force_unwrapping
   - identical_operands
-  - identifier_name
   - implicit_getter
-  - implicit_return
-  - inclusive_language
-  - invalid_swiftlint_command
+  - implicitly_unwrapped_optional
   - is_disjoint
   - joined_default_parameter
   - last_where
@@ -68,81 +112,56 @@ only_rules:
   - legacy_hashing
   - legacy_multiple
   - legacy_nsgeometry_functions
-  - legacy_random
-  - literal_expression_end_indentation
+  - local_doc_comment
   - lower_acl_than_parent
   - mark
-  - modifier_order
-  - multiline_arguments
-  - multiline_arguments_brackets
-  - multiline_function_chains
-  - multiline_literal_brackets
   - multiline_parameters
-  - multiline_parameters_brackets
-  - nimble_operator
-  - no_extension_access_modifier
-  - no_fallthrough_only
+  - multiple_closures_with_trailing_closure
+  - nslocalizedstring_key
   - no_space_in_method_call
-  - non_optional_string_data_conversion
   - non_overridable_class_declaration
   - notification_center_detachment
-  - ns_number_init_as_function_reference
-  - nsobject_prefer_isequal
-  - number_separator
+  - opening_brace
   - operator_usage_whitespace
   - operator_whitespace
   - overridden_super_call
+  - override_in_extension
+  - pattern_matching_keywords
+  - period_spacing
   - prefer_self_in_static_references
   - prefer_self_type_over_type_of_self
   - prefer_zero_over_explicit_init
   - private_action
   - private_outlet
+  - private_over_fileprivate
   - private_subject
-  - private_swiftui_state
   - private_unit_test
   - prohibited_super_call
   - protocol_property_accessors_order
-  - reduce_boolean
-  - reduce_into
   - redundant_discardable_let
   - redundant_nil_coalescing
   - redundant_objc_attribute
   - redundant_optional_initialization
-  - redundant_set_access_control
-  - redundant_string_enum_value
-  - redundant_type_annotation
   - redundant_void_return
+  - reduce_boolean
   - required_enum_case
   - return_arrow_whitespace
   - return_value_from_void_function
-  - self_binding
-  - self_in_property_initialization
   - shorthand_operator
-  - shorthand_optional_binding
+  - single_test_class
   - sorted_first_last
   - statement_position
-  - static_operator
-  - static_over_final_class
-  - strong_iboutlet
   - superfluous_disable_command
-  - superfluous_else
   - switch_case_alignment
-  - switch_case_on_newline
   - syntactic_sugar
   - test_case_accessibility
-  - toggle_bool
-  - trailing_closure
   - trailing_comma
   - trailing_newline
   - trailing_semicolon
-  - trailing_whitespace
-  - unavailable_condition
   - unavailable_function
   - unneeded_break_in_switch
   - unneeded_override
-  - unneeded_parentheses_in_closure_argument
-  - unowned_variable_capture
-  - untyped_error_in_catch
+  - unneeded_synthesized_initializer
   - unused_closure_parameter
   - unused_control_flow_label
   - unused_enumerated
@@ -151,81 +170,37 @@ only_rules:
   - valid_ibinspectable
   - vertical_parameter_alignment
   - vertical_parameter_alignment_on_call
+  - vertical_whitespace
   - vertical_whitespace_closing_braces
-  - vertical_whitespace_opening_braces
-  - void_function_in_ternary
   - void_return
-  - xct_specific_matcher
+  - weak_delegate
   - xctfail_message
   - yoda_condition
-analyzer_rules:
-  - capture_variable
-  - typesafe_array_init
-  - unneeded_synthesized_initializer
-  - unused_declaration
-  - unused_import
-for_where:
-  allow_for_as_filter: true
-number_separator:
-  minimum_length: 5
-identifier_name:
-  max_length:
-    warning: 100
-    error: 100
-  min_length:
-    warning: 2
-    error: 2
-  allowed_symbols:
-    - '_'
-  excluded:
-    - 'x'
-    - 'y'
-    - 'z'
-    - 'a'
-    - 'b'
-    - 'x1'
-    - 'x2'
-    - 'y1'
-    - 'y2'
-    - 'z2'
-redundant_type_annotation:
-  consider_default_literal_types_redundant: true
-unneeded_override:
-  affect_initializers: true
-deployment_target:
-  macOS_deployment_target: '14'
-  iOS_deployment_target: '17'
-  tvOS_deployment_target: '17'
-  watchOS_deployment_target: '10'
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
+
+file_header:
+  required_pattern: |
+                    \/\/
+                    \/\/  .*?
+                    \/\/  .*?
+                    \/\/
+                    \/\/  Created by .*? on \d{1,2}\/\d{1,2}\/(\d{2}|\d{4})\.
+                    \/\/  Copyright (©|\(c\)) \d{4} .*?\. All rights reserved\.
+                    \/\/
+
 custom_rules:
-  no_nsrect:
-    regex: '\bNSRect\b'
-    match_kinds: typeidentifier
-    message: 'Use CGRect instead of NSRect'
-  no_nssize:
-    regex: '\bNSSize\b'
-    match_kinds: typeidentifier
-    message: 'Use CGSize instead of NSSize'
-  no_nspoint:
-    regex: '\bNSPoint\b'
-    match_kinds: typeidentifier
-    message: 'Use CGPoint instead of NSPoint'
-  no_cgfloat:
-    regex: '\bCGFloat\b'
-    match_kinds: typeidentifier
-    message: 'Use Double instead of CGFloat'
-  no_cgfloat2:
-    regex: '\bCGFloat\('
-    message: 'Use Double instead of CGFloat'
-  swiftui_state_private:
-    regex: '@(ObservedObject|EnvironmentObject)\s+var'
-    message: 'SwiftUI @ObservedObject and @EnvironmentObject properties should be private'
-  swiftui_environment_private:
-    regex: '@Environment\(\\\.\w+\)\s+var'
-    message: 'SwiftUI @Environment properties should be private'
-  final_class:
-    regex: '^class [a-zA-Z\d]+[^{]+\{'
-    message: 'Classes should be marked as final whenever possible. If you actually need it to be subclassable, just add `// swiftlint:disable:next final_class`.'
-  no_alignment_center:
-    regex: '\b\(alignment: .center\b'
-    message: 'This alignment is the default.'
+  force_https:
+    name: "Force HTTPS over HTTP"
+    regex: "((?i)http(?!s))"
+    match_kinds: string
+    message: "HTTPS should be favored over HTTP"
+    severity: warning
+  custom_todo:
+    name: "TODO Violation"
+    regex: "(TODO).(?!.*(https&)).(?!.*issue)"
+    match_kinds: comment
+    message: "TODOs must include a link to the issue."
+    severity: warning

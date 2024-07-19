@@ -81,7 +81,8 @@ extension CalendarViewCoordinator: UITableViewDelegate {
             let item = self.storage.getItemsForSection(section: indexPath.section)[indexPath.row]
             let check = isLeading ? !item.isDone : item.isDone
             if check {
-                self.storage.updateItem(item: self.storage.createItemWithAnotherIsDone(item: item))
+                let newItem = self.storage.createItemWithAnotherIsDone(item: item)
+                self.updateToDoItem(item: newItem)
                 tableView.reloadRows(at: [indexPath], with: .none)
             }
             completionHandler(true)
@@ -130,7 +131,9 @@ extension CalendarViewCoordinator: UICollectionViewDelegateFlowLayout {
         guard selectedItem != indexPath else { return }
         selectedItem = indexPath
         let indexPath = IndexPath(row: 0, section: indexPath.row)
-        isSelectedInCollectionView = true
+        if isSelectedInCollectionView == false {
+            isSelectedInCollectionView = true
+        }
         view.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         view.collectionView.reloadData()
     }

@@ -45,5 +45,6 @@ struct TextFieldView: View {
         .onTapGesture {
             UIApplication.shared.closeKeyboard()
         }
+        .accessibilityAddTraits(.isButton)
     }
 }

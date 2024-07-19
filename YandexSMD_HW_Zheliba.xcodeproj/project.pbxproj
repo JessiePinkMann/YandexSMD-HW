@@ -41,11 +41,23 @@
 		4F60FA022C42B58200914854 /* ImportanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA012C42B58200914854 /* ImportanceView.swift */; };
 		4F60FA042C42B5C200914854 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA032C42B5C200914854 /* DetailsViewModel.swift */; };
 		4F60FA062C42B64E00914854 /* LogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA052C42B64E00914854 /* LogFormatter.swift */; };
-		4F60FA082C42B6B800914854 /* URLSessionDataTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA072C42B6B800914854 /* URLSessionDataTaskManager.swift */; };
+		4F60FA082C42B6B800914854 /* URLSession+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA072C42B6B800914854 /* URLSession+Ext.swift */; };
 		4F60FA0A2C42B71600914854 /* UINavigationController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA092C42B71600914854 /* UINavigationController+Ext.swift */; };
 		4F60FA0C2C42BE9D00914854 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA0B2C42BE9D00914854 /* ColorPickerView.swift */; };
 		4F60FA282C4A83C300914854 /* YandexSMD_HW_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA272C4A83C300914854 /* YandexSMD_HW_UITests.swift */; };
 		4F60FA2A2C4A843700914854 /* YandexSMD_HW_UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA292C4A843700914854 /* YandexSMD_HW_UITestsLaunchTests.swift */; };
+		4F60FA2C2C4A918800914854 /* AlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA2B2C4A918800914854 /* AlertModifier.swift */; };
+		4F60FA2E2C4A921500914854 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA2D2C4A921500914854 /* Constants.swift */; };
+		4F60FA302C4A924200914854 /* MockTodoItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA2F2C4A924200914854 /* MockTodoItems.swift */; };
+		4F60FA322C4A930D00914854 /* AlertData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA312C4A930D00914854 /* AlertData.swift */; };
+		4F60FA352C4A93B700914854 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA342C4A93B700914854 /* NetworkingService.swift */; };
+		4F60FA372C4A93CA00914854 /* DefaultNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA362C4A93CA00914854 /* DefaultNetworkingService.swift */; };
+		4F60FA3A2C4A93EC00914854 /* NetworkingElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA392C4A93EC00914854 /* NetworkingElement.swift */; };
+		4F60FA3C2C4A93FC00914854 /* NetworkingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA3B2C4A93FC00914854 /* NetworkingItem.swift */; };
+		4F60FA3E2C4A941000914854 /* NetworkingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA3D2C4A941000914854 /* NetworkingList.swift */; };
+		4F60FA402C4A942800914854 /* NetworkingErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA3F2C4A942800914854 /* NetworkingErrors.swift */; };
+		4F60FA422C4A943800914854 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA412C4A943800914854 /* Delay.swift */; };
+		4F60FA442C4A946700914854 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA432C4A946700914854 /* KeychainService.swift */; };
 		4FBF33CB2C429BF60045634F /* CocoaLumberjack in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBF33CA2C429BF60045634F /* CocoaLumberjack */; };
 		4FBF33CD2C429BF60045634F /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBF33CC2C429BF60045634F /* CocoaLumberjackSwift */; };
 		4FBF33CF2C429BF60045634F /* CocoaLumberjackSwiftLogBackend in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBF33CE2C429BF60045634F /* CocoaLumberjackSwiftLogBackend */; };
@@ -104,11 +116,23 @@
 		4F60FA012C42B58200914854 /* ImportanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportanceView.swift; sourceTree = "<group>"; };
 		4F60FA032C42B5C200914854 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		4F60FA052C42B64E00914854 /* LogFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFormatter.swift; sourceTree = "<group>"; };
-		4F60FA072C42B6B800914854 /* URLSessionDataTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskManager.swift; sourceTree = "<group>"; };
+		4F60FA072C42B6B800914854 /* URLSession+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Ext.swift"; sourceTree = "<group>"; };
 		4F60FA092C42B71600914854 /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
 		4F60FA0B2C42BE9D00914854 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		4F60FA272C4A83C300914854 /* YandexSMD_HW_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexSMD_HW_UITests.swift; sourceTree = "<group>"; };
 		4F60FA292C4A843700914854 /* YandexSMD_HW_UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexSMD_HW_UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4F60FA2B2C4A918800914854 /* AlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModifier.swift; sourceTree = "<group>"; };
+		4F60FA2D2C4A921500914854 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4F60FA2F2C4A924200914854 /* MockTodoItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTodoItems.swift; sourceTree = "<group>"; };
+		4F60FA312C4A930D00914854 /* AlertData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertData.swift; sourceTree = "<group>"; };
+		4F60FA342C4A93B700914854 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		4F60FA362C4A93CA00914854 /* DefaultNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNetworkingService.swift; sourceTree = "<group>"; };
+		4F60FA392C4A93EC00914854 /* NetworkingElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingElement.swift; sourceTree = "<group>"; };
+		4F60FA3B2C4A93FC00914854 /* NetworkingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingItem.swift; sourceTree = "<group>"; };
+		4F60FA3D2C4A941000914854 /* NetworkingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingList.swift; sourceTree = "<group>"; };
+		4F60FA3F2C4A942800914854 /* NetworkingErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingErrors.swift; sourceTree = "<group>"; };
+		4F60FA412C4A943800914854 /* Delay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
+		4F60FA432C4A946700914854 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		4FDCD8732C25946100E6D5A3 /* YandexSMD_HW_Zheliba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YandexSMD_HW_Zheliba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FDCD8762C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexSMD_HW_ZhelibaApp.swift; sourceTree = "<group>"; };
 		4FDCD8782C25946100E6D5A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -149,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				4F355C142C301F260049DBAB /* ColorPicker.swift */,
+				4F60FA2D2C4A921500914854 /* Constants.swift */,
+				4F60FA2F2C4A924200914854 /* MockTodoItems.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -167,6 +193,7 @@
 				4FDCD8872C259F0C00E6D5A3 /* TodoItemModel.swift */,
 				4F355C022C301D990049DBAB /* Importants.swift */,
 				4F355C392C389B670049DBAB /* Category.swift */,
+				4F60FA312C4A930D00914854 /* AlertData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +227,7 @@
 				4F355C0D2C301ECD0049DBAB /* ColorModifier.swift */,
 				4F355C0F2C301ED50049DBAB /* TextFieldFrameModifier.swift */,
 				4F355C2D2C3897FE0049DBAB /* KeyboardModifier.swift */,
+				4F60FA2B2C4A918800914854 /* AlertModifier.swift */,
 			);
 			path = HelpModifiers;
 			sourceTree = "<group>";
@@ -315,6 +343,7 @@
 		4F60FA1E2C4A7D3800914854 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4F60FA332C4A936800914854 /* Networking */,
 				4F355C042C301E090049DBAB /* Extensions */,
 				4F355C012C301D3F0049DBAB /* Model */,
 				4F355C002C301CF60049DBAB /* FileCache */,
@@ -336,7 +365,7 @@
 		4F60FA212C4A811600914854 /* URLSession */ = {
 			isa = PBXGroup;
 			children = (
-				4F60FA072C42B6B800914854 /* URLSessionDataTaskManager.swift */,
+				4F60FA072C42B6B800914854 /* URLSession+Ext.swift */,
 			);
 			path = URLSession;
 			sourceTree = "<group>";
@@ -385,6 +414,29 @@
 				4F60FA292C4A843700914854 /* YandexSMD_HW_UITestsLaunchTests.swift */,
 			);
 			path = YandexSMD_HW_ZhelibaUITests;
+			sourceTree = "<group>";
+		};
+		4F60FA332C4A936800914854 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4F60FA382C4A93DF00914854 /* Models */,
+				4F60FA342C4A93B700914854 /* NetworkingService.swift */,
+				4F60FA362C4A93CA00914854 /* DefaultNetworkingService.swift */,
+				4F60FA432C4A946700914854 /* KeychainService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		4F60FA382C4A93DF00914854 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4F60FA392C4A93EC00914854 /* NetworkingElement.swift */,
+				4F60FA3B2C4A93FC00914854 /* NetworkingItem.swift */,
+				4F60FA3D2C4A941000914854 /* NetworkingList.swift */,
+				4F60FA3F2C4A942800914854 /* NetworkingErrors.swift */,
+				4F60FA412C4A943800914854 /* Delay.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		4FDCD86A2C25946100E6D5A3 = {
@@ -637,6 +689,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F60FA3A2C4A93EC00914854 /* NetworkingElement.swift in Sources */,
 				4F355C2C2C3897D70049DBAB /* UIImage+Ext.swift in Sources */,
 				4F355C0E2C301ECD0049DBAB /* ColorModifier.swift in Sources */,
 				4F355C132C301F120049DBAB /* TaskView.swift in Sources */,
@@ -645,30 +698,41 @@
 				4F355C362C389AB20049DBAB /* CalendarTableViewCell.swift in Sources */,
 				4F355C202C3020B10049DBAB /* CaseIterable.swift in Sources */,
 				4F355C382C389B300049DBAB /* StorageLogic.swift in Sources */,
+				4F60FA3E2C4A941000914854 /* NetworkingList.swift in Sources */,
 				4FDCD8792C25946100E6D5A3 /* ContentView.swift in Sources */,
+				4F60FA442C4A946700914854 /* KeychainService.swift in Sources */,
 				4F355C2E2C3897FE0049DBAB /* KeyboardModifier.swift in Sources */,
+				4F60FA402C4A942800914854 /* NetworkingErrors.swift in Sources */,
 				4F355C062C301E4F0049DBAB /* Color+Ext.swift in Sources */,
 				4F355C0C2C301EC40049DBAB /* SheetModifier.swift in Sources */,
 				4FDCD8882C259F0C00E6D5A3 /* TodoItemModel.swift in Sources */,
 				4F355C322C3899B20049DBAB /* CalendarViewCoordinator+Ext.swift in Sources */,
-				4F60FA082C42B6B800914854 /* URLSessionDataTaskManager.swift in Sources */,
+				4F60FA082C42B6B800914854 /* URLSession+Ext.swift in Sources */,
 				4F355C182C301F630049DBAB /* MainView.swift in Sources */,
+				4F60FA302C4A924200914854 /* MockTodoItems.swift in Sources */,
 				4FDCD88C2C25A0C200E6D5A3 /* FileCache.swift in Sources */,
+				4F60FA422C4A943800914854 /* Delay.swift in Sources */,
 				4F355C342C389AA10049DBAB /* CalendarCollectionViewCell.swift in Sources */,
 				4F355C032C301D990049DBAB /* Importants.swift in Sources */,
+				4F60FA322C4A930D00914854 /* AlertData.swift in Sources */,
 				4F355C2A2C3897BF0049DBAB /* UIView+Ext.swift in Sources */,
+				4F60FA2E2C4A921500914854 /* Constants.swift in Sources */,
 				4F355C282C3897520049DBAB /* CalendarView.swift in Sources */,
+				4F60FA2C2C4A918800914854 /* AlertModifier.swift in Sources */,
 				4FDCD8772C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift in Sources */,
 				4F60F9FC2C42B4FF00914854 /* DeadlineView.swift in Sources */,
 				4F355C302C3899900049DBAB /* CalendarViewCoordinator.swift in Sources */,
 				4F355BFF2C301CE10049DBAB /* ModalState.swift in Sources */,
+				4F60FA372C4A93CA00914854 /* DefaultNetworkingService.swift in Sources */,
 				4F60FA002C42B56F00914854 /* CategoryView.swift in Sources */,
 				4F60FA0C2C42BE9D00914854 /* ColorPickerView.swift in Sources */,
 				4F355C1A2C301F730049DBAB /* DetailsView.swift in Sources */,
 				4F355BFD2C301CBD0049DBAB /* MainViewModel.swift in Sources */,
+				4F60FA352C4A93B700914854 /* NetworkingService.swift in Sources */,
 				4F60F9FE2C42B55300914854 /* TextFieldView.swift in Sources */,
 				4F60FA022C42B58200914854 /* ImportanceView.swift in Sources */,
 				4F60FA042C42B5C200914854 /* DetailsViewModel.swift in Sources */,
+				4F60FA3C2C4A93FC00914854 /* NetworkingItem.swift in Sources */,
 				4F355C1C2C3020480049DBAB /* UIApplication+Ext.swift in Sources */,
 				4F60FA062C42B64E00914854 /* LogFormatter.swift in Sources */,
 				4F60FA0A2C42B71600914854 /* UINavigationController+Ext.swift in Sources */,
