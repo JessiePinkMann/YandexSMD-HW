@@ -12,6 +12,7 @@ struct CalendarView: UIViewRepresentable {
     @Binding var storage: StorageLogic
     @Binding var apiManager: DefaultNetworkingService
     @ObservedObject var modalState: ModalState
+    
     let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: CalendarTableViewCell.identifier)
@@ -19,6 +20,7 @@ struct CalendarView: UIViewRepresentable {
         tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
+    
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -32,17 +34,22 @@ struct CalendarView: UIViewRepresentable {
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
+    
     private let plusButton: UIButton = {
-        guard let image = UIImage(systemName: "plus.circle.fill")?.withTintColor(.systemBlue) else { return UIButton() }
+        guard let image = UIImage(systemName: "plus.circle.fill")?.withTintColor(.systemBlue) else {
+            return UIButton()
+        }
         let resizedImage = image.resize(withSize: CGSize(width: 50, height: 50))
         let plusButton = UIButton()
         plusButton.addShadow(height: 8, radius: 10)
         plusButton.setImage(resizedImage, for: .normal)
         return plusButton
     }()
+    
     func makeCoordinator() -> CalendarViewCoordinator {
         CalendarViewCoordinator(storage: storage, modalState: modalState, uiview: self, apiManager: apiManager)
     }
+    
     func makeUIView(context: Context) -> UIView {
         let view = UIView(frame: .zero)
         setupCoordinatorProperties(context: context)
@@ -67,6 +74,7 @@ struct CalendarView: UIViewRepresentable {
         ])
         return view
     }
+    
     func updateUIView(_ uiView: UIView, context: Context) {
         if modalState.didDismiss {
             DispatchQueue.main.async {
@@ -75,6 +83,7 @@ struct CalendarView: UIViewRepresentable {
             }
         }
     }
+    
     private func makeDivider() -> UIView {
         let divider = UIView()
         divider.backgroundColor = .gray
@@ -83,6 +92,7 @@ struct CalendarView: UIViewRepresentable {
         ])
         return divider
     }
+    
     private func setupCoordinatorProperties(context: Context) {
         collectionView.dataSource = context.coordinator
         collectionView.delegate = context.coordinator

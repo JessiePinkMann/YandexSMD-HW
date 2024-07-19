@@ -31,9 +31,11 @@ final class DetailsViewModel: ObservableObject {
     init(apiManager: DefaultNetworkingService) {
         self.apiManager = apiManager
     }
+    
     func getCategories(storage: StorageLogic) {
         categories = storage.getCategories()
     }
+    
     func updateValues(item: TodoItem?) {
         if let item {
             text = item.text
@@ -46,9 +48,11 @@ final class DetailsViewModel: ObservableObject {
             isDisabledDelete = true
         }
     }
+    
     func updateDate() {
         date = !showDate ? Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date() : date
     }
+    
     func saveItem(state: ModalState, hexColorTask: String, hexColorCategory: String, storage: StorageLogic) {
         let deadline = showDate ? date : nil
         let color = showColor ? hexColorTask : nil
@@ -69,28 +73,31 @@ final class DetailsViewModel: ObservableObject {
         }
         state.activateModalView = false
     }
+    
     func checkIsDisabledToSave(selectedItem: TodoItem?, hexColor: String) {
         guard !text.isEmpty,
               hexColor != selectedItem?.color && showColor ||
-              !showColor && selectedItem?.color != nil ||
-              !date.isEqualDay(with: selectedItem?.deadline) && showDate ||
-              !showDate && selectedItem?.deadline != nil ||
-              selection != selectedItem?.importance.rawValue ||
-              text != selectedItem?.text ||
-              selectionCategory == categories.count && title != "" ||
-              selectionCategory < categories.count && categories[selectionCategory].name != selectedItem?.category.name
+                !showColor && selectedItem?.color != nil ||
+                !date.isEqualDay(with: selectedItem?.deadline) && showDate ||
+                !showDate && selectedItem?.deadline != nil ||
+                selection != selectedItem?.importance.rawValue ||
+                text != selectedItem?.text ||
+                selectionCategory == categories.count && !title.isEmpty ||
+                selectionCategory < categories.count && categories[selectionCategory].name != selectedItem?.category.name
         else {
             isDisabledSave = true
             return
         }
         isDisabledSave = false
     }
+    
     func addToDoItem(item: TodoItem, storage: StorageLogic) {
         storage.updateItem(item: item)
         storage.saveItemsToJSON()
         apiManager.incrementNumberOfTasks()
         addToDoItemOnServer(item: item, storage: storage)
     }
+    
     func addToDoItemOnServer(item: TodoItem, storage: StorageLogic, retryDelay: Int = Delay.minDelay) {
         Task {
             do {
@@ -118,12 +125,14 @@ final class DetailsViewModel: ObservableObject {
             }
         }
     }
+    
     func updateToDoItem(item: TodoItem, storage: StorageLogic) {
         storage.updateItem(item: item)
         storage.saveItemsToJSON()
         apiManager.incrementNumberOfTasks()
         updateToDoItemOnServer(item: item, storage: storage)
     }
+    
     func updateToDoItemOnServer(item: TodoItem, storage: StorageLogic, retryDelay: Int = Delay.minDelay) {
         Task {
             do {
@@ -151,12 +160,14 @@ final class DetailsViewModel: ObservableObject {
             }
         }
     }
+    
     func deleteToDoItem(id: UUID, storage: StorageLogic) {
         storage.deleteItem(id: id)
         storage.saveItemsToJSON()
         apiManager.incrementNumberOfTasks()
         deleteToDoItemOnServer(id: id, storage: storage)
     }
+    
     func deleteToDoItemOnServer(id: UUID, storage: StorageLogic, retryDelay: Int = Delay.minDelay) {
         Task {
             do {

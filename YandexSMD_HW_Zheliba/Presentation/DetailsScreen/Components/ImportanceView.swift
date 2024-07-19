@@ -11,6 +11,7 @@ import SwiftUI
 struct ImportanceView: View {
     @ObservedObject var viewModel: DetailsViewModel
     @ObservedObject var modalState: ModalState
+
     var body: some View {
         HStack {
             Text("Важность")
@@ -25,7 +26,7 @@ struct ImportanceView: View {
             }
             .frame(width: 150)
             .pickerStyle(SegmentedPickerStyle())
-            .animation(nil)
+            .animation(nil, value: viewModel.selection)
         }
         .frame(height: 40)
     }

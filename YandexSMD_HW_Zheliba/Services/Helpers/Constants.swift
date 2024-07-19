@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Constants {
+enum Constants {
     static let key: String = "token"
     static let httpStatusCodeSuccess = 200..<300
 }

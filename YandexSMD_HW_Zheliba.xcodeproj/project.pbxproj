@@ -58,6 +58,7 @@
 		4F60FA402C4A942800914854 /* NetworkingErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA3F2C4A942800914854 /* NetworkingErrors.swift */; };
 		4F60FA422C4A943800914854 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA412C4A943800914854 /* Delay.swift */; };
 		4F60FA442C4A946700914854 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA432C4A946700914854 /* KeychainService.swift */; };
+		4F60FA462C4AAC5C00914854 /* DataForParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60FA452C4AAC5C00914854 /* DataForParsing.swift */; };
 		4FBF33CB2C429BF60045634F /* CocoaLumberjack in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBF33CA2C429BF60045634F /* CocoaLumberjack */; };
 		4FBF33CD2C429BF60045634F /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBF33CC2C429BF60045634F /* CocoaLumberjackSwift */; };
 		4FBF33CF2C429BF60045634F /* CocoaLumberjackSwiftLogBackend in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBF33CE2C429BF60045634F /* CocoaLumberjackSwiftLogBackend */; };
@@ -133,6 +134,7 @@
 		4F60FA3F2C4A942800914854 /* NetworkingErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingErrors.swift; sourceTree = "<group>"; };
 		4F60FA412C4A943800914854 /* Delay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
 		4F60FA432C4A946700914854 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		4F60FA452C4AAC5C00914854 /* DataForParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataForParsing.swift; sourceTree = "<group>"; };
 		4FDCD8732C25946100E6D5A3 /* YandexSMD_HW_Zheliba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YandexSMD_HW_Zheliba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FDCD8762C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexSMD_HW_ZhelibaApp.swift; sourceTree = "<group>"; };
 		4FDCD8782C25946100E6D5A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				4F355C142C301F260049DBAB /* ColorPicker.swift */,
 				4F60FA2D2C4A921500914854 /* Constants.swift */,
 				4F60FA2F2C4A924200914854 /* MockTodoItems.swift */,
+				4F60FA452C4AAC5C00914854 /* DataForParsing.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -695,6 +698,7 @@
 				4F355C132C301F120049DBAB /* TaskView.swift in Sources */,
 				4F355C152C301F260049DBAB /* ColorPicker.swift in Sources */,
 				4F355C102C301ED50049DBAB /* TextFieldFrameModifier.swift in Sources */,
+				4F60FA462C4AAC5C00914854 /* DataForParsing.swift in Sources */,
 				4F355C362C389AB20049DBAB /* CalendarTableViewCell.swift in Sources */,
 				4F355C202C3020B10049DBAB /* CaseIterable.swift in Sources */,
 				4F355C382C389B300049DBAB /* StorageLogic.swift in Sources */,

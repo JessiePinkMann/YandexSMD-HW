@@ -10,6 +10,7 @@ import SwiftUI
 
 struct AlertModifier: ViewModifier {
     @ObservedObject var apiManager: DefaultNetworkingService
+    
     func body(content: Content) -> some View {
         content
             .alert(item: $apiManager.alertData) { alert in

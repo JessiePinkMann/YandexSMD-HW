@@ -27,7 +27,7 @@ struct ColorPickerView: View {
     private var linearGradientWidth: CGFloat = 280
 
     private var currentColor: Color {
-        Color(UIColor.init(hue: self.normalizeGesture() / linearGradientWidth, saturation: 1.0, brightness: brightness, alpha: 1.0))
+        Color(UIColor(hue: self.normalizeGesture() / linearGradientWidth, saturation: 1.0, brightness: brightness, alpha: 1.0))
     }
 
     private func normalizeGesture() -> CGFloat {
@@ -65,7 +65,7 @@ struct ColorPickerView: View {
     var slider: some View {
         Slider(value: $brightness, in: 0...1, step: 0.01)
             .padding()
-            .onChange(of: brightness) { newBrightness, _ in
+            .onChange(of: brightness) {
                 withAnimation(Animation.spring().speed(2)) {
                     setupColors()
                     chosenColor = currentColor
@@ -109,7 +109,7 @@ struct ColorPickerView: View {
         }
         .frame(width: linearGradientWidth)
         .padding()
-        .onAppear() {
+        .onAppear {
             setupColors()
         }
     }

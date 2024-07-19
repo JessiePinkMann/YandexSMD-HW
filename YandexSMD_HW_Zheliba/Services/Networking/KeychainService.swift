@@ -24,6 +24,7 @@ class KeychainService {
         }
         return false
     }
+    
     static func loadToken(forKey key: String) -> String? {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,

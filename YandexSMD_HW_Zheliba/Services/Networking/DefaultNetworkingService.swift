@@ -14,10 +14,12 @@ class DefaultNetworkingService: NetworkingService, ObservableObject, @unchecked 
     private let token: String
     private var revision = 0
     private let deviceID: String
+    
     init(token: String, deviceID: String) {
         self.token = token
         self.deviceID = deviceID
     }
+    
     func getTodoList() async throws -> [TodoItem] {
         let request = try makeGetRequest(for: "/list")
         let (data, _) = try await performRequest(request)
@@ -27,6 +29,7 @@ class DefaultNetworkingService: NetworkingService, ObservableObject, @unchecked 
         }
         return response.list.compactMap(makeTodoItem(from:))
     }
+    
     func getTodoItem(id: String) async throws -> TodoItem? {
         let request = try makeGetRequest(for: "/list/id")
         let (data, _) = try await performRequest(request)
@@ -36,6 +39,7 @@ class DefaultNetworkingService: NetworkingService, ObservableObject, @unchecked 
         }
         return makeTodoItem(from: response.element)
     }
+    
     func updateTodoList(todoList: [TodoItem]) async throws -> [TodoItem] {
         let networkingList = NetworkingList(list: todoList.map(makeElement(from:)))
         let encodedData = try JSONEncoder().encode(networkingList)
@@ -47,6 +51,7 @@ class DefaultNetworkingService: NetworkingService, ObservableObject, @unchecked 
         }
         return response.list.compactMap(makeTodoItem(from:))
     }
+    
     @discardableResult
     func deleteTodoItem(id: String) async throws -> TodoItem? {
         let request = try makeDeleteRequest(for: "/list/\(id)")
@@ -57,6 +62,7 @@ class DefaultNetworkingService: NetworkingService, ObservableObject, @unchecked 
         }
         return makeTodoItem(from: response.element)
     }
+    
     @discardableResult
     func updateTodoItem(item: TodoItem) async throws -> TodoItem? {
         let networkingItem = NetworkingItem(element: makeElement(from: item))
@@ -69,6 +75,7 @@ class DefaultNetworkingService: NetworkingService, ObservableObject, @unchecked 
         }
         return makeTodoItem(from: response.element)
     }
+    
     @discardableResult
     func addTodoItem(item: TodoItem) async throws -> TodoItem? {
         let networkingItem = NetworkingItem(element: makeElement(from: item))
@@ -81,18 +88,21 @@ class DefaultNetworkingService: NetworkingService, ObservableObject, @unchecked 
         }
         return makeTodoItem(from: response.element)
     }
+    
     private func makeURL(for path: String) throws -> URL {
         guard let url = URL(string: baseURL + path) else {
             throw NetworkingErrors.incorrectURL(baseURL + path)
         }
         return url
     }
+    
     private func makeGetRequest(for path: String) throws -> URLRequest {
         let url = try makeURL(for: path)
         var request = URLRequest(url: url)
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         return request
     }
+    
     private func makeDeleteRequest(for path: String) throws -> URLRequest {
         let url = try makeURL(for: path)
         var request = URLRequest(url: url)
@@ -102,6 +112,7 @@ class DefaultNetworkingService: NetworkingService, ObservableObject, @unchecked 
         // request.setValue("100", forHTTPHeaderField: "X-Generate-Fails")
         return request
     }
+    
     private func makePutRequest(for path: String, data: Data) throws -> URLRequest {
         let url = try makeURL(for: path)
         var request = URLRequest(url: url)
@@ -112,6 +123,7 @@ class DefaultNetworkingService: NetworkingService, ObservableObject, @unchecked 
         request.httpBody = data
         return request
     }
+    
     private func makePostRequest(for path: String, data: Data) throws -> URLRequest {
         let url = try makeURL(for: path)
         var request = URLRequest(url: url)
@@ -122,6 +134,7 @@ class DefaultNetworkingService: NetworkingService, ObservableObject, @unchecked 
         request.httpBody = data
         return request
     }
+    
     private func makePatchRequest(for path: String, data: Data) throws -> URLRequest {
         let url = try makeURL(for: path)
         var request = URLRequest(url: url)
@@ -131,6 +144,7 @@ class DefaultNetworkingService: NetworkingService, ObservableObject, @unchecked 
         request.httpBody = data
         return request
     }
+    
     private func performRequest(_ request: URLRequest) async throws -> (Data, HTTPURLResponse) {
         let (ans, response) = try await URLSession.shared.dataTask(for: request)
         guard let response = response as? HTTPURLResponse else {
@@ -139,6 +153,7 @@ class DefaultNetworkingService: NetworkingService, ObservableObject, @unchecked 
         try checkStatusCode(response: response)
         return (ans, response)
     }
+    
     private func checkStatusCode(response: HTTPURLResponse) throws {
         switch response.statusCode {
         case 200..<300:
@@ -155,6 +170,7 @@ class DefaultNetworkingService: NetworkingService, ObservableObject, @unchecked 
             throw NetworkingErrors.unexpectedStatusCode(response.statusCode)
         }
     }
+    
     private func makeTodoItem(from element: NetworkingElement) -> TodoItem? {
         guard
             let id = UUID(uuidString: element.id),
@@ -176,6 +192,7 @@ class DefaultNetworkingService: NetworkingService, ObservableObject, @unchecked 
             color: element.color
         )
     }
+    
     private func makeElement(from todoItem: TodoItem) -> NetworkingElement {
         return NetworkingElement(
             id: todoItem.id.uuidString,

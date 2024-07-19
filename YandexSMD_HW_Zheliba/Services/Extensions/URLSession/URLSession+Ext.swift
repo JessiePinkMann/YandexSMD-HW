@@ -30,6 +30,7 @@ extension URLSession {
     enum Errors: Error {
         case badRequest
     }
+    
     func dataTask(for request: URLRequest) async throws -> (Data, URLResponse) {
         let taskManager = URLSessionDataTaskManager()
         return try await withTaskCancellationHandler(

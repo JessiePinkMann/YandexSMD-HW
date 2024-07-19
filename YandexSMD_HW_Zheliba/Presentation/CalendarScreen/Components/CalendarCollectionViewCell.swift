@@ -10,6 +10,7 @@ import UIKit
 
 class CalendarCollectionViewCell: UICollectionViewCell {
     static let identifier = "CalendarCollectionViewCell"
+    
     var stack: UIStackView = {
         var stack = UIStackView()
         stack.axis = .vertical
@@ -17,10 +18,13 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
+    
     override func prepareForReuse() {
+        super.prepareForReuse()
         stack.arrangedSubviews.forEach { $0.removeFromSuperview() }
         self.isSelected = false
     }
+    
     func makeLabel(text: String) -> UILabel {
         let label = UILabel()
         label.text = text
@@ -29,6 +33,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .center
         return label
     }
+    
     func configureCell() {
         self.layer.cornerRadius = 16
         if self.isSelected {
@@ -39,10 +44,12 @@ class CalendarCollectionViewCell: UICollectionViewCell {
             usualCell()
         }
     }
+    
     func usualCell() {
         self.backgroundColor = .clear
         self.layer.borderWidth = 0
     }
+    
     func setupUI(day: String, month: String, isAnother: Bool = false) {
         self.addSubview(stack)
         let day = makeLabel(text: day)

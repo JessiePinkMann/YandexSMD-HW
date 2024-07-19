@@ -74,9 +74,7 @@ opt_in_rules: # some rules are only opt-in
   - contains_over_first_not_nil
   - contains_over_range_nil_comparison
   - control_statement
-  - convenience_type
   - custom_todo
-  - direct_return
   - discouraged_direct_init
   - discouraged_optional_boolean
   - discarded_notification_center_observer
@@ -98,7 +96,6 @@ opt_in_rules: # some rules are only opt-in
   - for_where
   - force_cast
   - force_try
-  - force_unwrapping
   - identical_operands
   - implicit_getter
   - implicitly_unwrapped_optional
@@ -125,7 +122,6 @@ opt_in_rules: # some rules are only opt-in
   - operator_usage_whitespace
   - operator_whitespace
   - overridden_super_call
-  - override_in_extension
   - pattern_matching_keywords
   - period_spacing
   - prefer_self_in_static_references
@@ -154,7 +150,6 @@ opt_in_rules: # some rules are only opt-in
   - superfluous_disable_command
   - switch_case_alignment
   - syntactic_sugar
-  - test_case_accessibility
   - trailing_comma
   - trailing_newline
   - trailing_semicolon
@@ -162,7 +157,6 @@ opt_in_rules: # some rules are only opt-in
   - unneeded_break_in_switch
   - unneeded_override
   - unneeded_synthesized_initializer
-  - unused_closure_parameter
   - unused_control_flow_label
   - unused_enumerated
   - unused_optional_binding
@@ -180,16 +174,6 @@ opt_in_rules: # some rules are only opt-in
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Carthage
   - Pods
-
-file_header:
-  required_pattern: |
-                    \/\/
-                    \/\/  .*?
-                    \/\/  .*?
-                    \/\/
-                    \/\/  Created by .*? on \d{1,2}\/\d{1,2}\/(\d{2}|\d{4})\.
-                    \/\/  Copyright (©|\(c\)) \d{4} .*?\. All rights reserved\.
-                    \/\/
 
 custom_rules:
   force_https:

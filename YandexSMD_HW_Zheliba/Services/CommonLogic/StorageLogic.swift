@@ -17,6 +17,7 @@ final class StorageLogic: ObservableObject {
         Category(name: "Учеба", color: "#5F82FF"),
         Category(name: "Хобби", color: "#8CE555")
     ]
+    
     func createNewItem(
         item: TodoItem?,
         textAndImportance: (String, String),
@@ -57,12 +58,14 @@ final class StorageLogic: ObservableObject {
             )
         }
     }
+    
     func updateCategories(category: Category) {
         if !categories.contains(category) {
             categories.append(category)
             decodeCategories()
         }
     }
+    
     func getCategories() -> [Category] {
         if UserDefaults.standard.object(forKey: "categories") == nil {
             decodeCategories()
@@ -71,6 +74,7 @@ final class StorageLogic: ObservableObject {
         }
         return categories
     }
+    
     func decodeCategories() {
         do {
             let data = try JSONEncoder().encode(categories)
@@ -80,6 +84,7 @@ final class StorageLogic: ObservableObject {
             DDLogError("\(#function): \(error.localizedDescription)")
         }
     }
+    
     func encodeCategories() {
         if let data = UserDefaults.standard.data(forKey: "categories") {
             do {
@@ -93,6 +98,7 @@ final class StorageLogic: ObservableObject {
             DDLogError("\(#function): No categories found in UserDefaults")
         }
     }
+    
     func createItemWithAnotherIsDone(item: TodoItem) -> TodoItem {
         defer {
             DDLogInfo("\(#function): Item successfully created")
@@ -109,11 +115,16 @@ final class StorageLogic: ObservableObject {
             category: item.category
         )
     }
+    
     func updateItem(item: TodoItem) {
         fileCache.addNewItem(item: item)
     }
+    
     func updateItemAfterLoading(item: TodoItem) {
-        guard let oldItem = fileCache.todoItems[item.id] else { return updateItem(item: item) }
+        guard let oldItem = fileCache.todoItems[item.id] else {
+            updateItem(item: item)
+            return
+        }
         updateItem(
             item: TodoItem(
                 id: item.id,
@@ -128,38 +139,50 @@ final class StorageLogic: ObservableObject {
             )
         )
     }
+    
     @discardableResult
     func deleteItem(id: UUID) -> TodoItem? {
         return fileCache.removeItem(by: id)
     }
+    
     func deleteAllItemsThatNotInBackend(items: [TodoItem]) {
         let ids = items.compactMap({ $0.id })
         for item in fileCache.todoItems.values where !ids.contains(item.id) {
             deleteItem(id: item.id)
         }
     }
+    
     func loadItemsFromJSON() throws {
         try fileCache.getItemsFromJSON(fileName: "test1")
     }
+    
     func saveItemsToJSON() {
-        Task {
+        Task { [weak self] in
+            guard let self = self else {
+                return
+            }
             do {
-                try fileCache.saveJSON(fileName: "test1")
+                try self.fileCache.saveJSON(fileName: "test1")
                 DDLogInfo("\(#function): Items successfully saved")
             } catch {
                 DDLogError("\(#function): \(error.localizedDescription)")
             }
         }
     }
+
     func getItems() -> [UUID: TodoItem] {
         return fileCache.todoItems
     }
+    
     func getSections() -> [Date] {
         Set(fileCache.todoItems.values.compactMap({ item in
-            guard let deadline = item.deadline else { return nil }
+            guard let deadline = item.deadline else {
+                return nil
+            }
             return deadline.makeEqualDates()
         })).sorted(by: <)
     }
+    
     func getItemsForSection(section: Int) -> [TodoItem] {
         let sections = getSections()
         if section == sections.count {
@@ -169,9 +192,11 @@ final class StorageLogic: ObservableObject {
             ($0.deadline != nil) && $0.deadline!.makeEqualDates() == sections[section]
         })
     }
+    
     func checkIsDirty() -> Bool {
         return fileCache.isDirty
     }
+    
     func updateIsDirty(value: Bool) {
         fileCache.updateIsDirtyValue(by: value)
     }

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-// import CustomColorPicker
 import CocoaLumberjackSwift
 
 struct DetailsView: View {
@@ -18,12 +17,15 @@ struct DetailsView: View {
     @State var currentColor: Color = .clear
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
     var currentColorHex: String {
         currentColor.toHexString()
     }
+    
     var categoryColorHex: String {
         customCategoryColor.toHexString()
     }
+    
     var deleteButton: some View {
         Button(action: {
             if let id = modalState.selectedItem?.id {
@@ -41,6 +43,7 @@ struct DetailsView: View {
                 .fill(.secondaryBG)
         )
     }
+    
     var datePicker: some View {
         DatePicker(
             "Date",
@@ -50,6 +53,7 @@ struct DetailsView: View {
         .datePickerStyle(.graphical)
         .environment(\.locale, Locale(identifier: "ru_RU"))
     }
+    
     var categoryAddition: some View {
         HStack {
             TextField("Название категории", text: $viewModel.title, axis: .vertical)
@@ -61,8 +65,10 @@ struct DetailsView: View {
                 .gesture(TapGesture().onEnded({
                     viewModel.showCategoryColorPicker.toggle()
                 }))
+                .accessibilityAddTraits(.isButton)
         }
     }
+
     var settingsWithoutDeleteButton: some View {
         VStack {
             ImportanceView(viewModel: viewModel, modalState: modalState)
@@ -89,6 +95,7 @@ struct DetailsView: View {
             }
         }
     }
+    
     var settings: some View {
         VStack {
             settingsWithoutDeleteButton
@@ -158,6 +165,7 @@ struct DetailsView: View {
                 }
         }
     }
+    
     @ViewBuilder
     private func chooseRightView() -> some View {
         if verticalSizeClass == .compact || horizontalSizeClass == .regular {
@@ -180,6 +188,7 @@ struct DetailsView: View {
             }
         }
     }
+    
     private func updateForm(_ selectedItem: TodoItem?) {
         viewModel.getCategories(storage: storage)
         viewModel.updateValues(item: modalState.selectedItem)
@@ -206,6 +215,7 @@ struct DetailsView: View {
         viewModel.updateDate()
         changeSaveButtonAvailability()
     }
+    
     private func updateCategory() {
         if viewModel.selectionCategory < viewModel.categories.count {
             viewModel.showCategoryAddition = false
@@ -220,6 +230,7 @@ struct DetailsView: View {
         }
         changeSaveButtonAvailability()
     }
+    
     private func changeSaveButtonAvailability() {
         viewModel.checkIsDisabledToSave(selectedItem: modalState.selectedItem, hexColor: currentColorHex)
     }

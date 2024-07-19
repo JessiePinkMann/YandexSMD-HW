@@ -10,17 +10,21 @@ import SwiftUI
 
 class CalendarTableViewCell: UITableViewCell {
     static let identifier = "StrikethroughTableViewCell"
+    
     var circle: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
-        view.layer.cornerRadius = view.bounds.size.width/2
+        view.layer.cornerRadius = view.bounds.size.width / 2
         view.addShadow(height: 4, radius: 3)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
     override func prepareForReuse() {
+        super.prepareForReuse()
         textLabel?.attributedText = nil
         circle.removeFromSuperview()
     }
+
     func setupTextLabel(item: TodoItem) {
         self.addSubview(circle)
         NSLayoutConstraint.activate([

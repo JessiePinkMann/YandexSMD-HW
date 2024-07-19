@@ -19,6 +19,7 @@ class CalendarViewCoordinator: NSObject {
     var view: CalendarView
     var modalState: ModalState
     var cancellables = Set<AnyCancellable>()
+    
     init(storage: StorageLogic, modalState: ModalState, uiview: CalendarView, apiManager: DefaultNetworkingService) {
         self.apiManager = apiManager
         self.storage = storage
@@ -28,7 +29,9 @@ class CalendarViewCoordinator: NSObject {
         super.init()
         storage.$isUpdated
             .sink { [weak self] value in
-                guard let self = self else { return }
+                guard let self = self else {
+                    return
+                }
                 if value {
                     DispatchQueue.main.async {
                         self.sections = self.storage.getSections()
@@ -39,9 +42,11 @@ class CalendarViewCoordinator: NSObject {
             }
             .store(in: &cancellables)
     }
+    
     @objc func plusButtonPressed() {
         modalState.changeValues(item: nil)
     }
+    
     func updateData() {
         do {
             try storage.loadItemsFromJSON()
@@ -49,10 +54,12 @@ class CalendarViewCoordinator: NSObject {
            DDLogError("\(#function): \(error.localizedDescription)")
         }
     }
+    
     func reloadData() {
         view.collectionView.reloadData()
         view.tableView.reloadData()
     }
+    
     func countNumberOfSections() -> Int {
         var anotherCategory = 0
         if !storage.getItemsForSection(section: sections.count).isEmpty {
@@ -60,12 +67,14 @@ class CalendarViewCoordinator: NSObject {
         }
         return storage.getItems().isEmpty ? 0 : sections.count + anotherCategory
     }
+    
     func updateToDoItem(item: TodoItem) {
         storage.updateItem(item: item)
         storage.saveItemsToJSON()
         apiManager.incrementNumberOfTasks()
         updateToDoItemOnServer(item: item)
     }
+    
     private func updateToDoItemOnServer(item: TodoItem, retryDelay: Int = Delay.minDelay) {
         Task {
             do {

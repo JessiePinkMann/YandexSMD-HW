@@ -10,10 +10,15 @@ import XCTest
 
 final class ToDoList_iosCSVTests: XCTestCase {
 
+    enum CSVErrors: Error {
+        case csvParsingIncorrect
+        case csvComputedPropertyIncorrect
+    }
+
     func testCorrectnessOfCSVVariable() throws {
-        let todoitem = TodoItem(text: "5", importance: .important, deadline: Date(), isDone: false, changedAt: Date(), color: "#FFFFFF")
+        let todoitem = MockTodoItems.itemWithAllProperties
         let csvString = todoitem.csv
-        guard let csvString = csvString as? String else { throw NSError(domain: "Вычислимое свойство CSV работает некорректно", code: 0, userInfo: nil) }
+        guard let csvString = csvString as? String else { throw CSVErrors.csvComputedPropertyIncorrect }
         let arrayOfData = csvString.components(separatedBy: TodoItem.csvColumnsDelimiter)
         XCTAssertEqual(arrayOfData[0], todoitem.id.uuidString)
         XCTAssertEqual(arrayOfData[1], todoitem.text)
@@ -23,48 +28,55 @@ final class ToDoList_iosCSVTests: XCTestCase {
         XCTAssertEqual(arrayOfData[5], todoitem.createdAt.timeIntervalSince1970.description)
         XCTAssertEqual(arrayOfData[6], todoitem.changedAt?.timeIntervalSince1970.description)
         XCTAssertEqual(arrayOfData[7], todoitem.color)
+        XCTAssertEqual(arrayOfData[8], todoitem.category.name)
+        XCTAssertEqual(arrayOfData[9], todoitem.category.color)
     }
-    
     func testCSVWithoutDeadline() throws {
-        let todoitem = TodoItem(text: "5", importance: .important, isDone: false, changedAt: Date(), color: "#FFFFFF")
+        let todoitem = MockTodoItems.itemWithoutDeadline
         let csvString = todoitem.csv
-        guard let csvString = csvString as? String else { throw NSError(domain: "Вычислимое свойство CSV работает некорректно", code: 0, userInfo: nil) }
+        guard let csvString = csvString as? String else { throw CSVErrors.csvComputedPropertyIncorrect }
         let arrayOfData = csvString.components(separatedBy: TodoItem.csvColumnsDelimiter)
-        XCTAssert(arrayOfData.count == 8)
+        XCTAssert(arrayOfData.count == 10)
         XCTAssert(arrayOfData[3].isEmpty)
     }
-    
     func testCSVWithoutColor() throws {
-        let todoitem = TodoItem(text: "5", importance: .important, deadline: Date(), isDone: false, changedAt: Date())
+        let todoitem = MockTodoItems.itemWithoutColor
         let csvString = todoitem.csv
-        guard let csvString = csvString as? String else { throw NSError(domain: "Вычислимое свойство CSV работает некорректно", code: 0, userInfo: nil) }
+        guard let csvString = csvString as? String else { throw CSVErrors.csvComputedPropertyIncorrect }
         let arrayOfData = csvString.components(separatedBy: TodoItem.csvColumnsDelimiter)
-        XCTAssert(arrayOfData.count == 8)
+        XCTAssert(arrayOfData.count == 10)
         XCTAssert(arrayOfData[7].isEmpty)
     }
-    func testCSVWithoutChangedAt() throws {
-        let todoitem = TodoItem(text: "5", importance: .important, deadline: Date(), isDone: false, color: "#FFFFFF")
+    func testCSVWithoutCategoryColor() throws {
+        let todoitem = MockTodoItems.itemWithoutCategoryColor
         let csvString = todoitem.csv
-        guard let csvString = csvString as? String else { throw NSError(domain: "Вычислимое свойство CSV работает некорректно", code: 0, userInfo: nil) }
+        guard let csvString = csvString as? String else { throw CSVErrors.csvComputedPropertyIncorrect }
         let arrayOfData = csvString.components(separatedBy: TodoItem.csvColumnsDelimiter)
-        XCTAssert(arrayOfData.count == 8)
+        XCTAssert(arrayOfData.count == 10)
+        XCTAssert(arrayOfData[9].isEmpty)
+    }
+    func testCSVWithoutChangedAt() throws {
+        let todoitem = MockTodoItems.itemWithoutChangedAt
+        let csvString = todoitem.csv
+        guard let csvString = csvString as? String else { throw CSVErrors.csvComputedPropertyIncorrect }
+        let arrayOfData = csvString.components(separatedBy: TodoItem.csvColumnsDelimiter)
+        XCTAssert(arrayOfData.count == 10)
         XCTAssert(arrayOfData[6].isEmpty)
     }
-    
-    func testCSVWithUsualImportance() throws {
-        let todoitem = TodoItem(text: "5", importance: .usual, deadline: Date(), isDone: false, changedAt: Date(), color: "#FFFFFF")
+    func testCSVWithBasicImportance() throws {
+        let todoitem = MockTodoItems.itemWithBasicImportance
         let csvString = todoitem.csv
-        guard let csvString = csvString as? String else { throw NSError(domain: "Вычислимое свойство CSV работает некорректно", code: 0, userInfo: nil) }
+        guard let csvString = csvString as? String else { throw CSVErrors.csvComputedPropertyIncorrect }
         let arrayOfData = csvString.components(separatedBy: TodoItem.csvColumnsDelimiter)
-        XCTAssert(arrayOfData.count == 8)
+        XCTAssert(arrayOfData.count == 10)
         XCTAssert(arrayOfData[2].isEmpty)
     }
 
-    func testCorrectnessOfCSVParsing() throws {
-        let values = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970.description, "false", Date().timeIntervalSince1970.description, Date().timeIntervalSince1970.description, "#FFFFFF"]
+    @MainActor func testCorrectnessOfCSVParsing() throws {
+        let values = DataForParsing.itemWithAllProperties
         let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
         let todoitem = TodoItem.parse(csv: csvString)
-        guard let todoitem = todoitem else { throw NSError(domain: "Парсинг CSV работает некорректно", code: 0, userInfo: nil) }
+        guard let todoitem = todoitem else { throw CSVErrors.csvParsingIncorrect }
         XCTAssertEqual(todoitem.id.uuidString, values[0])
         XCTAssertEqual(todoitem.text, values[1])
         XCTAssertEqual(todoitem.importance, .important)
@@ -74,123 +86,114 @@ final class ToDoList_iosCSVTests: XCTestCase {
         XCTAssertEqual(todoitem.changedAt?.timeIntervalSince1970.description, values[6])
         XCTAssertEqual(todoitem.color, values[7])
     }
-    
-    func testParcingWithoutImportance() throws {
-        let values = [UUID().uuidString, "5", "", Date().timeIntervalSince1970.description, "false", Date().timeIntervalSince1970.description, Date().timeIntervalSince1970.description, "#FFFFFF"]
+    @MainActor func testParcingWithoutImportance() throws {
+        let values = DataForParsing.itemWithoutImportance
         let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
         let todoitem = TodoItem.parse(csv: csvString)
-        guard let todoitem = todoitem else { throw NSError(domain: "Парсинг CSV работает некорректно", code: 0, userInfo: nil) }
-        XCTAssertEqual(todoitem.importance, .usual)
+        guard let todoitem = todoitem else { throw CSVErrors.csvParsingIncorrect }
+        XCTAssertEqual(todoitem.importance, .basic)
     }
-    
-    func testParcingWithoutDeadline() throws {
-        let values = [UUID().uuidString, "5", "important", "", "false", Date().timeIntervalSince1970.description, Date().timeIntervalSince1970.description, "#FFFFFF"]
+    @MainActor func testParcingWithoutDeadline() throws {
+        let values = DataForParsing.itemWithoutDeadline
         let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
         let todoitem = TodoItem.parse(csv: csvString)
-        guard let todoitem = todoitem else { throw NSError(domain: "Парсинг CSV работает некорректно", code: 0, userInfo: nil) }
+        guard let todoitem = todoitem else { throw CSVErrors.csvParsingIncorrect }
         XCTAssertNil(todoitem.deadline)
     }
-    
-    func testParcingWithoutChangedAt() throws {
-        let values = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970.description, "false", Date().timeIntervalSince1970.description, "", "#FFFFFF"]
+    @MainActor func testParcingWithoutCategoryColor() throws {
+        let values = DataForParsing.itemWithoutCategoryColor
         let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
         let todoitem = TodoItem.parse(csv: csvString)
-        guard let todoitem = todoitem else { throw NSError(domain: "Парсинг CSV работает некорректно", code: 0, userInfo: nil) }
+        guard let todoitem = todoitem else { throw CSVErrors.csvParsingIncorrect }
+        XCTAssertNil(todoitem.category.color)
+    }
+    @MainActor func testParcingWithoutChangedAt() throws {
+        let values = DataForParsing.itemWithoutChangedAt
+        let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
+        let todoitem = TodoItem.parse(csv: csvString)
+        guard let todoitem = todoitem else { throw CSVErrors.csvParsingIncorrect }
         XCTAssertNil(todoitem.changedAt)
     }
-    
-    func testParcingWithoutColor() throws {
-        let values = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970.description, "false", Date().timeIntervalSince1970.description, Date().timeIntervalSince1970.description, ""]
+    @MainActor func testParcingWithoutColor() throws {
+        let values = DataForParsing.itemWithoutColor
         let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
         let todoitem = TodoItem.parse(csv: csvString)
-        guard let todoitem = todoitem else { throw NSError(domain: "Парсинг CSV работает некорректно", code: 0, userInfo: nil) }
+        guard let todoitem = todoitem else { throw CSVErrors.csvParsingIncorrect }
         XCTAssertNil(todoitem.color)
     }
-    
-    func testParcingWithIncorrectString() throws {
-        let values = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970.description, "false", Date().timeIntervalSince1970.description, Date().timeIntervalSince1970.description, "#FFFFFF"]
+    @MainActor func testParcingWithIncorrectString() throws {
+        let values = DataForParsing.itemWithAllProperties
         let csvString = values.joined(separator: " ")
         let todoitem = TodoItem.parse(csv: csvString)
         XCTAssertNil(todoitem)
     }
-    
-    func testParcingWithIncorrectNumberOfColumns1() throws {
-        let values = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970.description, "false", Date().timeIntervalSince1970.description, Date().timeIntervalSince1970.description, "#FFFFFF", "wrong"]
+    @MainActor func testParcingWithIncorrectNumberOfColumns1() throws {
+        let values = DataForParsing.itemWithExtraLine
         let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
         let todoitem = TodoItem.parse(csv: csvString)
         XCTAssertNil(todoitem)
     }
-    
-    func testParcingWithIncorrectNumberOfColumns2() throws {
-        let values = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970.description, "false", Date().timeIntervalSince1970.description]
+    @MainActor func testParcingWithIncorrectNumberOfColumns2() throws {
+        let values = DataForParsing.itemWithoutNecessaryProperties
         let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
         let todoitem = TodoItem.parse(csv: csvString)
         XCTAssertNil(todoitem)
     }
-    
-    func testParcingWithEmptyID() throws {
-        let values = ["", "5", "important", Date().timeIntervalSince1970.description, "false", Date().timeIntervalSince1970.description, Date().timeIntervalSince1970.description, "#FFFFFF"]
+    @MainActor func testParcingWithEmptyID() throws {
+        let values = DataForParsing.itemWithoutId
         let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
         let todoitem = TodoItem.parse(csv: csvString)
         XCTAssertNil(todoitem)
     }
-    
-    func testParcingWithIncorrectIsDoneValue() throws {
-        let values = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970.description, "52", Date().timeIntervalSince1970.description, Date().timeIntervalSince1970.description, "#FFFFFF"]
+    @MainActor func testParcingWithIncorrectIsDoneValue() throws {
+        let values = DataForParsing.itemWithIncorrectIsDone
         let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
         let todoitem = TodoItem.parse(csv: csvString)
         XCTAssertNil(todoitem)
     }
-    
-    func testParcingWithIncorrectImportanceValue() throws {
-        let values = [UUID().uuidString, "5", "cool", Date().timeIntervalSince1970.description, "false", Date().timeIntervalSince1970.description, Date().timeIntervalSince1970.description, "#FFFFFF"]
+    @MainActor func testParcingWithIncorrectImportanceValue() throws {
+        let values = DataForParsing.itemWithIncorrectImportance
         let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
         let todoitem = TodoItem.parse(csv: csvString)
         XCTAssertNil(todoitem)
     }
-    
-    func testParcingWithIncorrectCreatedAtValue() throws {
-        let values = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970.description, "false", "sdd", Date().timeIntervalSince1970.description, "#FFFFFF"]
+    @MainActor func testParcingWithIncorrectCreatedAtValue() throws {
+        let values = DataForParsing.itemWithIncorrectChangedAt
         let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
         let todoitem = TodoItem.parse(csv: csvString)
         XCTAssertNil(todoitem)
     }
-    
-    func testParcingWithEmptyCreatedAtValue() throws {
-        let values = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970.description, "false", "", Date().timeIntervalSince1970.description, "#FFFFFF"]
+    @MainActor func testParcingWithEmptyCreatedAtValue() throws {
+        let values = DataForParsing.itemWithoutCreatedAt
         let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
         let todoitem = TodoItem.parse(csv: csvString)
         XCTAssertNil(todoitem)
     }
-    
-    func testParcingWithEmptyIsDoneValue() throws {
-        let values = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970.description, "", Date().timeIntervalSince1970.description, Date().timeIntervalSince1970.description, "#FFFFFF"]
+    @MainActor func testParcingWithEmptyIsDoneValue() throws {
+        let values = DataForParsing.itemWithEmptyIsDone
         let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
         let todoitem = TodoItem.parse(csv: csvString)
         XCTAssertNil(todoitem)
     }
-    
-    func testParcingWithIncorrectDeadlineValue() throws {
-        let values = [UUID().uuidString, "5", "important", "f", "false", Date().timeIntervalSince1970.description, Date().timeIntervalSince1970.description, "#FFFFFF"]
+    @MainActor func testParcingWithIncorrectDeadlineValue() throws {
+        let values = DataForParsing.itemWithIncorrectDeadline
         let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
         let todoitem = TodoItem.parse(csv: csvString)
-        guard let todoitem = todoitem else { throw NSError(domain: "Парсинг CSV работает некорректно", code: 0, userInfo: nil) }
+        guard let todoitem = todoitem else { throw CSVErrors.csvParsingIncorrect }
         XCTAssertNil(todoitem.deadline)
     }
-    
-    func testParcingWithIncorrectChangedAtValue() throws {
-        let values = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970.description, "false", Date().timeIntervalSince1970.description, "r", "#FFFFFF"]
+    @MainActor func testParcingWithIncorrectChangedAtValue() throws {
+        let values = DataForParsing.itemWithIncorrectChangedAt
         let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
         let todoitem = TodoItem.parse(csv: csvString)
-        guard let todoitem = todoitem else { throw NSError(domain: "Парсинг CSV работает некорректно", code: 0, userInfo: nil) }
+        guard let todoitem = todoitem else { throw CSVErrors.csvParsingIncorrect }
         XCTAssertNil(todoitem.changedAt)
     }
-    
-    func testParcingWithCommaInText() throws {
-        let values = [UUID().uuidString, "5, 3", "important", Date().timeIntervalSince1970.description, "false", Date().timeIntervalSince1970.description, "r", "#FFFFFF"]
+    @MainActor func testParcingWithCommaInText() throws {
+        let values = DataForParsing.itemWithCommaInText
         let csvString = values.joined(separator: TodoItem.csvColumnsDelimiter)
         let todoitem = TodoItem.parse(csv: csvString)
-        guard let todoitem = todoitem else { throw NSError(domain: "Парсинг CSV работает некорректно", code: 0, userInfo: nil) }
+        guard let todoitem = todoitem else { throw CSVErrors.csvParsingIncorrect }
         XCTAssertEqual(todoitem.text, values[1])
     }
 }

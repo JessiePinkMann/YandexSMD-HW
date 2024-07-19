@@ -13,8 +13,6 @@ final class YandexSMD_HW_UITests: XCTestCase {
         continueAfterFailure = false
     }
 
-    override func tearDownWithError() throws { }
-
     func testExample() throws {
         let app = XCUIApplication()
         app.launch()

@@ -58,7 +58,7 @@ extension TodoItem {
     static func parse(json: Any) -> TodoItem? {
         guard
             let dictionary = json as? [String: Any],
-            let id = (dictionary[CodingKeys.id.rawValue] as? String).map(UUID.init(uuidString:)) ?? nil,
+            let id = (dictionary[CodingKeys.id.rawValue] as? String).flatMap(UUID.init(uuidString:)),
             let text = dictionary[CodingKeys.text.rawValue] as? String,
             let importance = (dictionary[CodingKeys.importance.rawValue] as? String)
                 .map(Importance.init(rawValue:)) ?? .basic,
@@ -120,7 +120,9 @@ extension TodoItem {
     static let csvColumnsDelimiter = ";"
     static let csvRowsDelimiter = "\r"
     static func parse(csv: Any) -> TodoItem? {
-        guard let csv = csv as? String else { return nil }
+        guard let csv = csv as? String else {
+            return nil
+        }
         let columnsData = csv.components(separatedBy: TodoItem.csvColumnsDelimiter)
         guard
             columnsData.count == 10,
