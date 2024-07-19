@@ -42,7 +42,6 @@ final class ToDoList_iosCSVTests: XCTestCase {
         XCTAssert(arrayOfData.count == 8)
         XCTAssert(arrayOfData[7].isEmpty)
     }
-    
     func testCSVWithoutChangedAt() throws {
         let todoitem = TodoItem(text: "5", importance: .important, deadline: Date(), isDone: false, color: "#FFFFFF")
         let csvString = todoitem.csv
