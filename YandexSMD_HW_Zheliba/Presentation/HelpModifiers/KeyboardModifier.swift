@@ -10,6 +10,7 @@ import SwiftUI
 
 struct KeyboardModifier: ViewModifier {
     @Binding var isHidden: Bool
+    
     func body(content: Content) -> some View {
         content
             .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification)) { _ in

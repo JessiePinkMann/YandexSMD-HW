@@ -10,10 +10,15 @@ import XCTest
 
 final class YandexSMD_HW_ZhelibaJsonTests: XCTestCase {
 
+    enum JSONErrors: Error {
+        case jsonParsingIncorrect
+        case jsonComputedPropertyIncorrect
+    }
+    
     func testCorrectnessOfJSONVariable() throws {
-        let todoitem = TodoItem(text: "5", importance: .important, deadline: Date(), isDone: false, changedAt: Date(), color: "#FFFFFF")
+        let todoitem = MockTodoItems.itemWithAllProperties
         let jsonData = todoitem.json
-        guard let jsonData = jsonData as? [String: Any] else { throw NSError(domain: "Вычислимое свойство JSON работает некорректно", code: 0, userInfo: nil) }
+        guard let jsonData = jsonData as? [String: Any] else { throw JSONErrors.jsonComputedPropertyIncorrect }
         XCTAssertEqual(jsonData["id"] as? String, todoitem.id.uuidString)
         XCTAssertEqual(jsonData["text"] as? String, todoitem.text)
         XCTAssertEqual(jsonData["importance"] as? String, todoitem.importance.rawValue)
@@ -22,44 +27,53 @@ final class YandexSMD_HW_ZhelibaJsonTests: XCTestCase {
         XCTAssertEqual(jsonData["created_at"] as? TimeInterval, todoitem.createdAt.timeIntervalSince1970)
         XCTAssertEqual(jsonData["changed_at"] as? TimeInterval, todoitem.changedAt?.timeIntervalSince1970)
         XCTAssertEqual(jsonData["color"] as? String, todoitem.color)
+        XCTAssertEqual(jsonData["category_name"] as? String, todoitem.category.name)
+        XCTAssertEqual(jsonData["category_color"] as? String, todoitem.category.color)
     }
 
     func testJSONWithoutDeadline() throws {
-        let todoitem = TodoItem(text: "5", importance: .important, isDone: false, changedAt: Date(), color: "#FFFFFF")
+        let todoitem = MockTodoItems.itemWithoutDeadline
         let jsonData = todoitem.json
-        guard let jsonData = jsonData as? [String: Any] else { throw NSError(domain: "Вычислимое свойство JSON работает некорректно", code: 0, userInfo: nil) }
+        guard let jsonData = jsonData as? [String: Any] else { throw JSONErrors.jsonComputedPropertyIncorrect }
         XCTAssertNil(jsonData["deadline"])
     }
     
-    func testJSONWithoutChangedAt() throws {
-        let todoitem = TodoItem(text: "5", importance: .important, deadline: Date(), isDone: false, color: "#FFFFFF")
+    func testJSONWithoutCategoryColor() throws {
+        let todoitem = MockTodoItems.itemWithoutCategoryColor
         let jsonData = todoitem.json
-        guard let jsonData = jsonData as? [String: Any] else { throw NSError(domain: "Вычислимое свойство JSON работает некорректно", code: 0, userInfo: nil) }
+        guard let jsonData = jsonData as? [String: Any] else { throw JSONErrors.jsonComputedPropertyIncorrect }
+        XCTAssertNil(jsonData["category_color"])
+    }
+    
+    func testJSONWithoutChangedAt() throws {
+        let todoitem = MockTodoItems.itemWithoutChangedAt
+        let jsonData = todoitem.json
+        guard let jsonData = jsonData as? [String: Any] else { throw JSONErrors.jsonComputedPropertyIncorrect }
         XCTAssertNil(jsonData["changed_at"])
     }
     
     func testJSONWithoutColor() throws {
-        let todoitem = TodoItem(text: "5", importance: .important, deadline: Date(), isDone: false, changedAt: Date())
+        let todoitem = MockTodoItems.itemWithoutColor
         let jsonData = todoitem.json
-        guard let jsonData = jsonData as? [String: Any] else { throw NSError(domain: "Вычислимое свойство JSON работает некорректно", code: 0, userInfo: nil) }
+        guard let jsonData = jsonData as? [String: Any] else { throw JSONErrors.jsonComputedPropertyIncorrect }
         XCTAssertNil(jsonData["color"])
     }
     
-    func testJSONWithUsualImportance() throws {
-        let todoitem = TodoItem(text: "5", importance: .usual, deadline: Date(), isDone: false, changedAt: Date(), color: "#FFFFFF")
+    func testJSONWithBasicImportance() throws {
+        let todoitem = MockTodoItems.itemWithBasicImportance
         let jsonData = todoitem.json
-        guard let jsonData = jsonData as? [String: Any] else { throw NSError(domain: "Вычислимое свойство JSON работает некорректно", code: 0, userInfo: nil) }
+        guard let jsonData = jsonData as? [String: Any] else { throw JSONErrors.jsonComputedPropertyIncorrect }
         XCTAssertNil(jsonData["importance"])
     }
     
-    func testCorrectnessOfJSONParsing() throws {
-        let values: [Any] = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970, false, Date().timeIntervalSince1970, Date().timeIntervalSince1970, "#FFFFFF"]
+    @MainActor func testCorrectnessOfJSONParsing() throws {
+        let values: [Any] = DataForParsing.itemWithAllPropertiesForJSON
         var dictionary: [String: Any] = [:]
         for elem in TodoItem.CodingKeys.allCases.enumerated() {
             dictionary[elem.element.rawValue] = values[elem.offset]
         }
         let todoitem = TodoItem.parse(json: dictionary)
-        guard let todoitem = todoitem else { throw NSError(domain: "Парсинг JSON работает некорректно", code: 0, userInfo: nil) }
+        guard let todoitem = todoitem else { throw JSONErrors.jsonParsingIncorrect }
         XCTAssertEqual(todoitem.id.uuidString, values[0] as? String)
         XCTAssertEqual(todoitem.text, values[1] as? String)
         XCTAssertEqual(todoitem.importance, .important)
@@ -68,49 +82,67 @@ final class YandexSMD_HW_ZhelibaJsonTests: XCTestCase {
         XCTAssertEqual(todoitem.createdAt.timeIntervalSince1970, values[5] as? TimeInterval)
         XCTAssertEqual(todoitem.changedAt?.timeIntervalSince1970, values[6] as? TimeInterval)
         XCTAssertEqual(todoitem.color, values[7] as? String)
+        XCTAssertEqual(todoitem.category.name, values[8] as? String)
+        XCTAssertEqual(todoitem.category.color, values[9] as? String)
     }
     
-    func testParcingWithoutImportance() throws {
-        let values: [Any?] = [UUID().uuidString, "5", nil, Date().timeIntervalSince1970, false, Date().timeIntervalSince1970, Date().timeIntervalSince1970, "#FFFFFF"]
+    @MainActor func testParcingWithoutImportance() throws {
+        let values: [Any?] = DataForParsing.itemWithAllPropertiesForJSON
         var dictionary: [String: Any] = [:]
         for elem in TodoItem.CodingKeys.allCases.enumerated() {
             dictionary[elem.element.rawValue] = values[elem.offset]
         }
+        dictionary[TodoItem.CodingKeys.importance.rawValue] = nil
         let todoitem = TodoItem.parse(json: dictionary)
-        guard let todoitem = todoitem else { throw NSError(domain: "Парсинг JSON работает некорректно", code: 0, userInfo: nil) }
-        XCTAssertEqual(todoitem.importance, .usual)
+        guard let todoitem = todoitem else { throw JSONErrors.jsonParsingIncorrect }
+        XCTAssertEqual(todoitem.importance, .basic)
     }
     
-    func testParcingWithoutColor() throws {
-        let values: [Any?] = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970, false, Date().timeIntervalSince1970, Date().timeIntervalSince1970, nil]
+    @MainActor func testParcingWithoutColor() throws {
+        let values: [Any?] = DataForParsing.itemWithAllPropertiesForJSON
         var dictionary: [String: Any] = [:]
         for elem in TodoItem.CodingKeys.allCases.enumerated() {
             dictionary[elem.element.rawValue] = values[elem.offset]
         }
+        dictionary[TodoItem.CodingKeys.color.rawValue] = nil
         let todoitem = TodoItem.parse(json: dictionary)
-        guard let todoitem = todoitem else { throw NSError(domain: "Парсинг JSON работает некорректно", code: 0, userInfo: nil) }
+        guard let todoitem = todoitem else { throw JSONErrors.jsonParsingIncorrect }
         XCTAssertEqual(todoitem.color, nil)
     }
     
-    func testParcingWithoutDeadline() throws {
-        let values: [Any?] = [UUID().uuidString, "5", "important", nil, false, Date().timeIntervalSince1970, Date().timeIntervalSince1970, "#FFFFFF"]
+    @MainActor func testParcingWithoutCategoryColor() throws {
+        let values: [Any?] = DataForParsing.itemWithAllPropertiesForJSON
         var dictionary: [String: Any] = [:]
         for elem in TodoItem.CodingKeys.allCases.enumerated() {
             dictionary[elem.element.rawValue] = values[elem.offset]
         }
+        dictionary[TodoItem.CodingKeys.categoryColor.rawValue] = nil
         let todoitem = TodoItem.parse(json: dictionary)
-        guard let todoitem = todoitem else { throw NSError(domain: "Парсинг JSON работает некорректно", code: 0, userInfo: nil) }
+        guard let todoitem = todoitem else { throw JSONErrors.jsonParsingIncorrect }
+        XCTAssertEqual(todoitem.category.color, nil)
+    }
+    
+    @MainActor func testParcingWithoutDeadline() throws {
+        let values: [Any?] = DataForParsing.itemWithAllPropertiesForJSON
+        var dictionary: [String: Any] = [:]
+        for elem in TodoItem.CodingKeys.allCases.enumerated() {
+            dictionary[elem.element.rawValue] = values[elem.offset]
+        }
+        dictionary[TodoItem.CodingKeys.deadline.rawValue] = nil
+        let todoitem = TodoItem.parse(json: dictionary)
+        guard let todoitem = todoitem else { throw JSONErrors.jsonParsingIncorrect }
         XCTAssertNil(todoitem.deadline)
     }
     
-    func testParcingWithoutChangedAt() throws {
-        let values: [Any?] = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970, false, Date().timeIntervalSince1970, nil, "#FFFFFF"]
+    @MainActor func testParcingWithoutChangedAt() throws {
+        let values: [Any?] = DataForParsing.itemWithAllPropertiesForJSON
         var dictionary: [String: Any] = [:]
         for elem in TodoItem.CodingKeys.allCases.enumerated() {
             dictionary[elem.element.rawValue] = values[elem.offset]
         }
+        dictionary[TodoItem.CodingKeys.changedAt.rawValue] = nil
         let todoitem = TodoItem.parse(json: dictionary)
-        guard let todoitem = todoitem else { throw NSError(domain: "Парсинг JSON работает некорректно", code: 0, userInfo: nil) }
+        guard let todoitem = todoitem else { throw JSONErrors.jsonParsingIncorrect }
         XCTAssertNil(todoitem.changedAt)
     }
     
@@ -127,8 +159,8 @@ final class YandexSMD_HW_ZhelibaJsonTests: XCTestCase {
         XCTAssertNil(todoitem)
     }
     
-    func testParcingWithIncorrectDictionary2() throws {
-        let values: [Any] = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970, false, Date().timeIntervalSince1970, Date().timeIntervalSince1970, "#FFFFFF"]
+    @MainActor func testParcingWithIncorrectDictionary2() throws {
+        let values: [Any] = DataForParsing.itemWithAllPropertiesForJSON
         var dictionary: [String: Any] = [:]
         for elem in TodoItem.CodingKeys.allCases.enumerated() {
             dictionary[elem.element.rawValue] = values[elem.offset]
@@ -138,85 +170,93 @@ final class YandexSMD_HW_ZhelibaJsonTests: XCTestCase {
         _ = try XCTUnwrap(todoitem)
     }
     
-    func testParcingWithEmptyID() throws {
-        let values: [Any] = ["", "5", "important", Date().timeIntervalSince1970, false, Date().timeIntervalSince1970, Date().timeIntervalSince1970, "#FFFFFF"]
+    @MainActor func testParcingWithEmptyID() throws {
+        let values: [Any] = DataForParsing.itemWithAllPropertiesForJSON
         var dictionary: [String: Any] = [:]
         for elem in TodoItem.CodingKeys.allCases.enumerated() {
             dictionary[elem.element.rawValue] = values[elem.offset]
         }
+        dictionary[TodoItem.CodingKeys.id.rawValue] = nil
         let todoitem = TodoItem.parse(json: dictionary)
         XCTAssertNil(todoitem)
     }
     
-    func testParcingWithIncorrectIsDoneValue() throws {
-        let values: [Any] = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970, "false", Date().timeIntervalSince1970, Date().timeIntervalSince1970, "#FFFFFF"]
+    @MainActor func testParcingWithIncorrectIsDoneValue() throws {
+        let values: [Any] = DataForParsing.itemWithAllPropertiesForJSON
         var dictionary: [String: Any] = [:]
         for elem in TodoItem.CodingKeys.allCases.enumerated() {
             dictionary[elem.element.rawValue] = values[elem.offset]
         }
+        dictionary[TodoItem.CodingKeys.isDone.rawValue] = "false"
         let todoitem = TodoItem.parse(json: dictionary)
         XCTAssertNil(todoitem)
     }
     
-    func testParcingWithIncorrectImportanceValue() throws {
-        let values: [Any] = [UUID().uuidString, "5", "cool", Date().timeIntervalSince1970, false, Date().timeIntervalSince1970, Date().timeIntervalSince1970, "#FFFFFF"]
+    @MainActor func testParcingWithIncorrectImportanceValue() throws {
+        let values: [Any] = DataForParsing.itemWithAllPropertiesForJSON
         var dictionary: [String: Any] = [:]
         for elem in TodoItem.CodingKeys.allCases.enumerated() {
             dictionary[elem.element.rawValue] = values[elem.offset]
         }
+        dictionary[TodoItem.CodingKeys.importance.rawValue] = "cool"
         let todoitem = TodoItem.parse(json: dictionary)
         XCTAssertNil(todoitem)
     }
     
-    func testParcingWithIncorrectCreatedAtValue() throws {
-        let values: [Any] = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970, false, "date", Date().timeIntervalSince1970, "#FFFFFF"]
+    @MainActor func testParcingWithIncorrectCreatedAtValue() throws {
+        let values: [Any] = DataForParsing.itemWithAllPropertiesForJSON
         var dictionary: [String: Any] = [:]
         for elem in TodoItem.CodingKeys.allCases.enumerated() {
             dictionary[elem.element.rawValue] = values[elem.offset]
         }
+        dictionary[TodoItem.CodingKeys.createdAt.rawValue] = "date"
         let todoitem = TodoItem.parse(json: dictionary)
         XCTAssertNil(todoitem)
     }
     
-    func testParcingWithEmptyCreatedAtValue() throws {
-        let values: [Any?] = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970, false, nil, Date().timeIntervalSince1970, "#FFFFFF"]
+    @MainActor func testParcingWithEmptyCreatedAtValue() throws {
+        let values: [Any?] = DataForParsing.itemWithAllPropertiesForJSON
         var dictionary: [String: Any] = [:]
         for elem in TodoItem.CodingKeys.allCases.enumerated() {
             dictionary[elem.element.rawValue] = values[elem.offset]
         }
+        dictionary[TodoItem.CodingKeys.createdAt.rawValue] = nil
         let todoitem = TodoItem.parse(json: dictionary)
         XCTAssertNil(todoitem)
     }
     
-    func testParcingWithEmptyIsDoneValue() throws {
-        let values: [Any?] = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970, nil, Date().timeIntervalSince1970, Date().timeIntervalSince1970, "#FFFFFF"]
+    @MainActor func testParcingWithEmptyIsDoneValue() throws {
+        let values: [Any?] = DataForParsing.itemWithAllPropertiesForJSON
         var dictionary: [String: Any] = [:]
         for elem in TodoItem.CodingKeys.allCases.enumerated() {
             dictionary[elem.element.rawValue] = values[elem.offset]
         }
+        dictionary[TodoItem.CodingKeys.isDone.rawValue] = nil
         let todoitem = TodoItem.parse(json: dictionary)
         XCTAssertNil(todoitem)
     }
     
-    func testParcingWithIncorrectDeadlineValue() throws {
-        let values: [Any?] = [UUID().uuidString, "5", "important", "/", false, Date().timeIntervalSince1970, Date().timeIntervalSince1970, "#FFFFFF"]
+    @MainActor func testParcingWithIncorrectDeadlineValue() throws {
+        let values: [Any?] = DataForParsing.itemWithAllPropertiesForJSON
         var dictionary: [String: Any] = [:]
         for elem in TodoItem.CodingKeys.allCases.enumerated() {
             dictionary[elem.element.rawValue] = values[elem.offset]
         }
+        dictionary[TodoItem.CodingKeys.deadline.rawValue] = "/"
         let todoitem = TodoItem.parse(json: dictionary)
-        guard let todoitem = todoitem else { throw NSError(domain: "Парсинг JSON работает некорректно", code: 0, userInfo: nil) }
+        guard let todoitem = todoitem else { throw JSONErrors.jsonParsingIncorrect }
         XCTAssertNil(todoitem.deadline)
     }
     
-    func testParcingWithIncorrectChangedAtValue() throws {
-        let values: [Any?] = [UUID().uuidString, "5", "important", Date().timeIntervalSince1970, false, Date().timeIntervalSince1970, ":", "#FFFFFF"]
+    @MainActor func testParcingWithIncorrectChangedAtValue() throws {
+        let values: [Any?] = DataForParsing.itemWithAllPropertiesForJSON
         var dictionary: [String: Any] = [:]
         for elem in TodoItem.CodingKeys.allCases.enumerated() {
             dictionary[elem.element.rawValue] = values[elem.offset]
         }
+        dictionary[TodoItem.CodingKeys.changedAt.rawValue] = ":"
         let todoitem = TodoItem.parse(json: dictionary)
-        guard let todoitem = todoitem else { throw NSError(domain: "Парсинг JSON работает некорректно", code: 0, userInfo: nil) }
+        guard let todoitem = todoitem else { throw JSONErrors.jsonParsingIncorrect }
         XCTAssertNil(todoitem.changedAt)
     }
 }

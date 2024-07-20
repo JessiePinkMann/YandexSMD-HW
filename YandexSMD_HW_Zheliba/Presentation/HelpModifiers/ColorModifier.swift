@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ColorModifier: ViewModifier {
     @Binding var todoItem: TodoItem
+    
     func body(content: Content) -> some View {
         if todoItem.isDone {
             content
