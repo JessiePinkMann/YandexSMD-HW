@@ -62,6 +62,11 @@
 		4FBF33CB2C429BF60045634F /* CocoaLumberjack in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBF33CA2C429BF60045634F /* CocoaLumberjack */; };
 		4FBF33CD2C429BF60045634F /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBF33CC2C429BF60045634F /* CocoaLumberjackSwift */; };
 		4FBF33CF2C429BF60045634F /* CocoaLumberjackSwiftLogBackend in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBF33CE2C429BF60045634F /* CocoaLumberjackSwiftLogBackend */; };
+		4FCD79E02C55097300E6A3A8 /* SQLFileCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCD79DF2C55097300E6A3A8 /* SQLFileCache.swift */; };
+		4FCD79E22C55099000E6A3A8 /* SwiftDataFileCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCD79E12C55099000E6A3A8 /* SwiftDataFileCache.swift */; };
+		4FCD79E42C550A1B00E6A3A8 /* SwiftDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCD79E32C550A1B00E6A3A8 /* SwiftDataStorage.swift */; };
+		4FCD79E72C550B9000E6A3A8 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 4FCD79E62C550B9000E6A3A8 /* SQLite */; };
+		4FCD79E92C550C3900E6A3A8 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCD79E82C550C3900E6A3A8 /* Reachability.swift */; };
 		4FDCD8772C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDCD8762C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift */; };
 		4FDCD8792C25946100E6D5A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDCD8782C25946100E6D5A3 /* ContentView.swift */; };
 		4FDCD87B2C25946300E6D5A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDCD87A2C25946300E6D5A3 /* Assets.xcassets */; };
@@ -135,6 +140,10 @@
 		4F60FA412C4A943800914854 /* Delay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
 		4F60FA432C4A946700914854 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		4F60FA452C4AAC5C00914854 /* DataForParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataForParsing.swift; sourceTree = "<group>"; };
+		4FCD79DF2C55097300E6A3A8 /* SQLFileCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLFileCache.swift; sourceTree = "<group>"; };
+		4FCD79E12C55099000E6A3A8 /* SwiftDataFileCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataFileCache.swift; sourceTree = "<group>"; };
+		4FCD79E32C550A1B00E6A3A8 /* SwiftDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataStorage.swift; sourceTree = "<group>"; };
+		4FCD79E82C550C3900E6A3A8 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		4FDCD8732C25946100E6D5A3 /* YandexSMD_HW_Zheliba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YandexSMD_HW_Zheliba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FDCD8762C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexSMD_HW_ZhelibaApp.swift; sourceTree = "<group>"; };
 		4FDCD8782C25946100E6D5A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -153,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FCD79E72C550B9000E6A3A8 /* SQLite in Frameworks */,
 				4FBF33CD2C429BF60045634F /* CocoaLumberjackSwift in Frameworks */,
 				4FBF33CF2C429BF60045634F /* CocoaLumberjackSwiftLogBackend in Frameworks */,
 				4FBF33CB2C429BF60045634F /* CocoaLumberjack in Frameworks */,
@@ -186,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				4FDCD88B2C25A0C200E6D5A3 /* FileCache.swift */,
+				4FCD79DF2C55097300E6A3A8 /* SQLFileCache.swift */,
+				4FCD79E12C55099000E6A3A8 /* SwiftDataFileCache.swift */,
 			);
 			path = FileCache;
 			sourceTree = "<group>";
@@ -406,6 +418,8 @@
 			children = (
 				4F355BFE2C301CE10049DBAB /* ModalState.swift */,
 				4F355C372C389B300049DBAB /* StorageLogic.swift */,
+				4FCD79E32C550A1B00E6A3A8 /* SwiftDataStorage.swift */,
+				4FCD79E82C550C3900E6A3A8 /* Reachability.swift */,
 			);
 			path = CommonLogic;
 			sourceTree = "<group>";
@@ -536,6 +550,7 @@
 				4FBF33CA2C429BF60045634F /* CocoaLumberjack */,
 				4FBF33CC2C429BF60045634F /* CocoaLumberjackSwift */,
 				4FBF33CE2C429BF60045634F /* CocoaLumberjackSwiftLogBackend */,
+				4FCD79E62C550B9000E6A3A8 /* SQLite */,
 			);
 			productName = YandexSMD_HW_Zheliba;
 			productReference = 4FDCD8732C25946100E6D5A3 /* YandexSMD_HW_Zheliba.app */;
@@ -591,6 +606,7 @@
 			mainGroup = 4FDCD86A2C25946100E6D5A3;
 			packageReferences = (
 				4FBF33C92C429BF60045634F /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
+				4FCD79E52C550ADD00E6A3A8 /* XCRemoteSwiftPackageReference "SQLite" */,
 			);
 			productRefGroup = 4FDCD8742C25946100E6D5A3 /* Products */;
 			projectDirPath = "";
@@ -696,6 +712,7 @@
 				4F355C2C2C3897D70049DBAB /* UIImage+Ext.swift in Sources */,
 				4F355C0E2C301ECD0049DBAB /* ColorModifier.swift in Sources */,
 				4F355C132C301F120049DBAB /* TaskView.swift in Sources */,
+				4FCD79E42C550A1B00E6A3A8 /* SwiftDataStorage.swift in Sources */,
 				4F355C152C301F260049DBAB /* ColorPicker.swift in Sources */,
 				4F355C102C301ED50049DBAB /* TextFieldFrameModifier.swift in Sources */,
 				4F60FA462C4AAC5C00914854 /* DataForParsing.swift in Sources */,
@@ -723,7 +740,9 @@
 				4F60FA2E2C4A921500914854 /* Constants.swift in Sources */,
 				4F355C282C3897520049DBAB /* CalendarView.swift in Sources */,
 				4F60FA2C2C4A918800914854 /* AlertModifier.swift in Sources */,
+				4FCD79E92C550C3900E6A3A8 /* Reachability.swift in Sources */,
 				4FDCD8772C25946100E6D5A3 /* YandexSMD_HW_ZhelibaApp.swift in Sources */,
+				4FCD79E02C55097300E6A3A8 /* SQLFileCache.swift in Sources */,
 				4F60F9FC2C42B4FF00914854 /* DeadlineView.swift in Sources */,
 				4F355C302C3899900049DBAB /* CalendarViewCoordinator.swift in Sources */,
 				4F355BFF2C301CE10049DBAB /* ModalState.swift in Sources */,
@@ -741,6 +760,7 @@
 				4F60FA062C42B64E00914854 /* LogFormatter.swift in Sources */,
 				4F60FA0A2C42B71600914854 /* UINavigationController+Ext.swift in Sources */,
 				4F355C082C301E690049DBAB /* Date+Ext.swift in Sources */,
+				4FCD79E22C55099000E6A3A8 /* SwiftDataFileCache.swift in Sources */,
 				4F355C3A2C389B670049DBAB /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1028,6 +1048,14 @@
 				minimumVersion = 3.8.5;
 			};
 		};
+		4FCD79E52C550ADD00E6A3A8 /* XCRemoteSwiftPackageReference "SQLite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.15.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1045,6 +1073,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4FBF33C92C429BF60045634F /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
 			productName = CocoaLumberjackSwiftLogBackend;
+		};
+		4FCD79E62C550B9000E6A3A8 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4FCD79E52C550ADD00E6A3A8 /* XCRemoteSwiftPackageReference "SQLite" */;
+			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

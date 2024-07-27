@@ -9,34 +9,29 @@ import SwiftUI
 import CocoaLumberjackSwift
 
 struct MainView: View {
-    
     @StateObject private var viewModel = MainViewModel(
         deviceID: UIDevice.current.identifierForVendor?.uuidString ?? ""
     )
-    
     @StateObject private var modalState = ModalState()
     init() {
         setupLogger()
     }
-    
     var menu: some View {
         Menu {
             Button(
                 action: {
                     viewModel.changeShowButtonValue()
-                    viewModel.updateSortedItems(items: Array(viewModel.storage.getItems().values))
                 },
                 label: {
-                    Text(viewModel.showButtonText)
+                    Text(viewModel.filterType.rawValue)
                 }
             )
             Button(
                 action: {
                     viewModel.changeSortButtonValue()
-                    viewModel.updateSortedItems(items: Array(viewModel.storage.getItems().values))
                 },
                 label: {
-                    Text(viewModel.sortButtonText)
+                    Text(viewModel.sortType.rawValue)
                 }
             )
         } label: {
@@ -49,7 +44,6 @@ struct MainView: View {
             }
         }
     }
-    
     var sectionHeader: some View {
         HStack {
             Text("Выполнено — \(viewModel.count)")
@@ -60,14 +54,12 @@ struct MainView: View {
         .font(.system(size: 17))
         .padding(.bottom, 12)
     }
-    
     var footer: some View {
         Text("Новое")
             .padding(.leading, 34)
             .padding([.bottom, .top], 8)
             .foregroundStyle(.gray)
     }
-    
     var section: some View {
         Section {
             ForEach($viewModel.sortedItems) { item in
@@ -88,7 +80,7 @@ struct MainView: View {
                     }
                     .swipeActions(edge: .trailing) {
                         Button(role: .destructive) {
-                            viewModel.deleteItem(id: item.wrappedValue.id)
+                            viewModel.deleteItem(item: item.wrappedValue)
                         } label: {
                             Image(systemName: "trash.fill")
                         }
@@ -115,7 +107,6 @@ struct MainView: View {
         }
         .listRowInsets(.init(top: 0, leading: 16, bottom: 0, trailing: 0))
     }
-    
     var plusButton: some View {
         Button(
             action: {
@@ -129,7 +120,6 @@ struct MainView: View {
             }
         )
     }
-    
     var calendarView: some View {
         CalendarView(storage: $viewModel.storage, apiManager: $viewModel.apiManager, modalState: modalState)
             .navigationTitle("Мои дела")
@@ -143,7 +133,6 @@ struct MainView: View {
                 DDLogInfo("\(#function): CalendarView disappeared")
             }
     }
-    
     var content: some View {
         VStack {
             List {
@@ -177,7 +166,6 @@ struct MainView: View {
             plusButton
         }
     }
-    
     var body: some View {
         chooseView()
         .onAppear {
@@ -190,7 +178,6 @@ struct MainView: View {
         .modifier(SheetModifier(modalState: modalState, storage: viewModel.storage, apiManager: viewModel.apiManager))
         .modifier(AlertModifier(apiManager: viewModel.apiManager))
     }
-    
     @ViewBuilder
     func chooseView() -> some View {
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -212,7 +199,6 @@ struct MainView: View {
             }
         }
     }
-    
     func setupLogger() {
         let consoleLogger = DDOSLogger.sharedInstance
         consoleLogger.logFormatter = LogFormatter()
