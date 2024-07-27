@@ -17,19 +17,16 @@ struct DetailsView: View {
     @State var currentColor: Color = .clear
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    
     var currentColorHex: String {
         currentColor.toHexString()
     }
-    
     var categoryColorHex: String {
         customCategoryColor.toHexString()
     }
-    
     var deleteButton: some View {
         Button(action: {
-            if let id = modalState.selectedItem?.id {
-                viewModel.deleteToDoItem(id: id, storage: storage)
+            if let item = modalState.selectedItem {
+                viewModel.deleteToDoItem(item: item, storage: storage)
             }
             modalState.activateModalView = false
         }, label: {
@@ -43,7 +40,6 @@ struct DetailsView: View {
                 .fill(.secondaryBG)
         )
     }
-    
     var datePicker: some View {
         DatePicker(
             "Date",
@@ -53,7 +49,6 @@ struct DetailsView: View {
         .datePickerStyle(.graphical)
         .environment(\.locale, Locale(identifier: "ru_RU"))
     }
-    
     var categoryAddition: some View {
         HStack {
             TextField("Название категории", text: $viewModel.title, axis: .vertical)
@@ -65,10 +60,8 @@ struct DetailsView: View {
                 .gesture(TapGesture().onEnded({
                     viewModel.showCategoryColorPicker.toggle()
                 }))
-                .accessibilityAddTraits(.isButton)
         }
     }
-
     var settingsWithoutDeleteButton: some View {
         VStack {
             ImportanceView(viewModel: viewModel, modalState: modalState)
@@ -95,7 +88,6 @@ struct DetailsView: View {
             }
         }
     }
-    
     var settings: some View {
         VStack {
             settingsWithoutDeleteButton
@@ -136,13 +128,13 @@ struct DetailsView: View {
                 .background(Color.primaryBG)
                 .onReceive(modalState.$selectedItem, perform: updateForm)
                 .modifier(KeyboardModifier(isHidden: $viewModel.isHidden))
-                .onChange(of: [viewModel.text, viewModel.selection, currentColorHex, viewModel.title]) {
+                .onChange(of: [viewModel.text, currentColorHex, viewModel.title]) {
                     changeSaveButtonAvailability()
                 }
                 .onChange(of: viewModel.date) {
                     changeSaveButtonAvailability()
                 }
-                .onChange(of: viewModel.selectionCategory) {
+                .onChange(of: [viewModel.selectionCategory, viewModel.selection]) {
                     updateCategory()
                 }
                 .onChange(of: viewModel.showDate) { _, value in
@@ -165,7 +157,6 @@ struct DetailsView: View {
                 }
         }
     }
-    
     @ViewBuilder
     private func chooseRightView() -> some View {
         if verticalSizeClass == .compact || horizontalSizeClass == .regular {
@@ -188,7 +179,6 @@ struct DetailsView: View {
             }
         }
     }
-    
     private func updateForm(_ selectedItem: TodoItem?) {
         viewModel.getCategories(storage: storage)
         viewModel.updateValues(item: modalState.selectedItem)
@@ -215,7 +205,6 @@ struct DetailsView: View {
         viewModel.updateDate()
         changeSaveButtonAvailability()
     }
-    
     private func updateCategory() {
         if viewModel.selectionCategory < viewModel.categories.count {
             viewModel.showCategoryAddition = false
@@ -230,7 +219,6 @@ struct DetailsView: View {
         }
         changeSaveButtonAvailability()
     }
-    
     private func changeSaveButtonAvailability() {
         viewModel.checkIsDisabledToSave(selectedItem: modalState.selectedItem, hexColor: currentColorHex)
     }

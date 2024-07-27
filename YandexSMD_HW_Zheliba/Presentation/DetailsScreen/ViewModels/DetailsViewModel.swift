@@ -14,7 +14,7 @@ final class DetailsViewModel: ObservableObject {
     @Published var text: String = ""
     @Published var title: String = ""
     @Published var categories: [Category] = []
-    @Published var selection = "important"
+    @Published var selection = 2
     @Published var selectionCategory = 0
     @Published var date = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
     @Published var showDate = false
@@ -31,15 +31,13 @@ final class DetailsViewModel: ObservableObject {
     init(apiManager: DefaultNetworkingService) {
         self.apiManager = apiManager
     }
-    
     func getCategories(storage: StorageLogic) {
         categories = storage.getCategories()
     }
-    
     func updateValues(item: TodoItem?) {
         if let item {
             text = item.text
-            selection = item.importance.rawValue
+            selection = item.importance
             if let deadline = item.deadline {
                 date = deadline
                 showDate = true
@@ -48,11 +46,9 @@ final class DetailsViewModel: ObservableObject {
             isDisabledDelete = true
         }
     }
-    
     func updateDate() {
         date = !showDate ? Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date() : date
     }
-    
     func saveItem(state: ModalState, hexColorTask: String, hexColorCategory: String, storage: StorageLogic) {
         let deadline = showDate ? date : nil
         let color = showColor ? hexColorTask : nil
@@ -73,43 +69,39 @@ final class DetailsViewModel: ObservableObject {
         }
         state.activateModalView = false
     }
-    
     func checkIsDisabledToSave(selectedItem: TodoItem?, hexColor: String) {
         guard !text.isEmpty,
               hexColor != selectedItem?.color && showColor ||
-                !showColor && selectedItem?.color != nil ||
-                !date.isEqualDay(with: selectedItem?.deadline) && showDate ||
-                !showDate && selectedItem?.deadline != nil ||
-                selection != selectedItem?.importance.rawValue ||
-                text != selectedItem?.text ||
-                selectionCategory == categories.count && !title.isEmpty ||
-                selectionCategory < categories.count && categories[selectionCategory].name != selectedItem?.category.name
+              !showColor && selectedItem?.color != nil ||
+              !date.isEqualDay(with: selectedItem?.deadline) && showDate ||
+              !showDate && selectedItem?.deadline != nil ||
+              selection != selectedItem?.importance ||
+              text != selectedItem?.text ||
+              selectionCategory == categories.count && title != "" ||
+              selectionCategory < categories.count && categories[selectionCategory].name != selectedItem?.category.name
         else {
             isDisabledSave = true
             return
         }
         isDisabledSave = false
     }
-    
     func addToDoItem(item: TodoItem, storage: StorageLogic) {
-        storage.updateItem(item: item)
-        storage.saveItemsToJSON()
+        storage.insertItemInPersistence(item: item)
         apiManager.incrementNumberOfTasks()
         addToDoItemOnServer(item: item, storage: storage)
     }
-    
     func addToDoItemOnServer(item: TodoItem, storage: StorageLogic, retryDelay: Int = Delay.minDelay) {
         Task {
             do {
                 try await apiManager.addTodoItem(item: item)
-                storage.isUpdated = true
                 apiManager.decrementNumberOfTasks()
-                DDLogInfo("\(#function): the item have been added successfully")
+                apiManager.isShownAlertWithNoConnection = false
+                DDLogInfo("\(#function): the item has been added successfully")
             } catch {
                 DDLogError("\(#function): \(error.localizedDescription)")
                 let error = error as? NetworkingErrors
-                let isServerError = error?.localizedDescription == NetworkingErrors.serverError.localizedDescription
-                if retryDelay < Delay.maxDelay, isServerError {
+                let isNeededRetry = error == NetworkingErrors.serverError || error == NetworkingErrors.noConnection
+                if retryDelay < Delay.maxDelay, isNeededRetry {
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(retryDelay)) {
                         self.addToDoItemOnServer(
                             item: item,
@@ -120,31 +112,27 @@ final class DetailsViewModel: ObservableObject {
                 } else {
                     storage.updateIsDirty(value: true)
                     apiManager.decrementNumberOfTasks()
-                    storage.isUpdated = true
                 }
             }
         }
     }
-    
     func updateToDoItem(item: TodoItem, storage: StorageLogic) {
-        storage.updateItem(item: item)
-        storage.saveItemsToJSON()
+        storage.updateItemInPersistence(item: item)
         apiManager.incrementNumberOfTasks()
         updateToDoItemOnServer(item: item, storage: storage)
     }
-    
     func updateToDoItemOnServer(item: TodoItem, storage: StorageLogic, retryDelay: Int = Delay.minDelay) {
         Task {
             do {
                 try await apiManager.updateTodoItem(item: item)
-                storage.isUpdated = true
                 apiManager.decrementNumberOfTasks()
-                DDLogInfo("\(#function): the item have been updated successfully")
+                apiManager.isShownAlertWithNoConnection = false
+                DDLogInfo("\(#function): the item has been updated successfully")
             } catch {
                 DDLogError("\(#function): \(error.localizedDescription)")
                 let error = error as? NetworkingErrors
-                let isServerError = error?.localizedDescription == NetworkingErrors.serverError.localizedDescription
-                if retryDelay < Delay.maxDelay, isServerError {
+                let isNeededRetry = error == NetworkingErrors.serverError || error == NetworkingErrors.noConnection
+                if retryDelay < Delay.maxDelay, isNeededRetry {
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(retryDelay)) {
                         self.updateToDoItemOnServer(
                             item: item,
@@ -155,31 +143,27 @@ final class DetailsViewModel: ObservableObject {
                 } else {
                     storage.updateIsDirty(value: true)
                     apiManager.decrementNumberOfTasks()
-                    storage.isUpdated = true
                 }
             }
         }
     }
-    
-    func deleteToDoItem(id: UUID, storage: StorageLogic) {
-        storage.deleteItem(id: id)
-        storage.saveItemsToJSON()
+    func deleteToDoItem(item: TodoItem, storage: StorageLogic) {
+        storage.deleteItemInPersistence(item: item)
         apiManager.incrementNumberOfTasks()
-        deleteToDoItemOnServer(id: id, storage: storage)
+        deleteToDoItemOnServer(id: item.id, storage: storage)
     }
-    
     func deleteToDoItemOnServer(id: UUID, storage: StorageLogic, retryDelay: Int = Delay.minDelay) {
         Task {
             do {
                 try await apiManager.deleteTodoItem(id: id.uuidString)
-                storage.isUpdated = true
+                apiManager.isShownAlertWithNoConnection = false
                 apiManager.decrementNumberOfTasks()
-                DDLogInfo("\(#function): the item have been deleted successfully")
+                DDLogInfo("\(#function): the item has been deleted successfully")
             } catch {
                 DDLogError("\(#function): \(error.localizedDescription)")
                 let error = error as? NetworkingErrors
-                let isServerError = error?.localizedDescription == NetworkingErrors.serverError.localizedDescription
-                if retryDelay < Delay.maxDelay, isServerError {
+                let isNeededRetry = error == NetworkingErrors.serverError || error == NetworkingErrors.noConnection
+                if retryDelay < Delay.maxDelay, isNeededRetry {
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(retryDelay)) {
                         self.deleteToDoItemOnServer(
                             id: id,
@@ -190,7 +174,6 @@ final class DetailsViewModel: ObservableObject {
                 } else {
                     storage.updateIsDirty(value: true)
                     apiManager.decrementNumberOfTasks()
-                    storage.isUpdated = true
                 }
             }
         }
